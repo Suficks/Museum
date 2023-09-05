@@ -1,7 +1,7 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const COMMON_SASS_PATH = path.resolve(__dirname, './src/common/sass');
@@ -35,17 +35,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new ESLintPlugin()
+    new ESLintPlugin(),
   ],
   module: {
-    eslint: {
-      configFile: '.eslintrc',
-      emitWarning: true
-    },
     rules: [
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
       {
         test: /\.s[ac]ss$/i,
@@ -58,9 +54,9 @@ module.exports = {
               sassOptions: {
                 sourceMap: true,
                 includePaths: [COMMON_SASS_PATH],
-              }
-            }
-          }
+              },
+            },
+          },
         ],
       },
       {
@@ -72,7 +68,7 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'fonts/[name].[ext]',
-        }
+        },
       },
       {
         test: /\.(?:js|mjs|cjs)$/,
@@ -81,20 +77,11 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }],
-            ]
-          }
-        }
-      },
-      {
-        enforce: "pre",
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-        options: {
-          formatter: require.resolve("eslint-formatter-friendly"),
+              ['@babel/preset-env', { targets: 'defaults' }],
+            ],
+          },
         },
       },
-    ]
-  }
-}
+    ],
+  },
+};

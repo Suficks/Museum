@@ -1,4 +1,7 @@
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb"
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+  },
+  "extends": "airbnb",
 }
