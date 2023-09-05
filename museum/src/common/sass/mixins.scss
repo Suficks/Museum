@@ -1,7 +1,13 @@
 @mixin forum ($fs, $fw, $lh) {
-  font: $fw $fs/$lh 'Forum';
+  font-family: 'Forum';
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
 }
 
 @mixin roboto ($fs, $fw, $lh) {
-  font: $fw $fs/$lh 'Roboto';
+  font-family: 'Roboto';
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
 }

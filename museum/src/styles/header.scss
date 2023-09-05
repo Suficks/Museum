@@ -1,0 +1,54 @@
+.header {
+  color: #FFFFFF;
+  background-color: $color-dark;
+
+  .header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 59px 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .logo__pic {
+    display: block
+  }
+
+  .title {
+    @include forum (28px, 400, 31px);
+    letter-spacing: 5px;
+  }
+
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+  }
+
+  .item__link {
+    color: #FFFFFF;
+    @include roboto (22px, 100, 25px);
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+
+    &:hover {
+      color: $color-gold;
+    }
+
+    &:active {
+      color: #7E6C51;
+    }
+  }
+}
