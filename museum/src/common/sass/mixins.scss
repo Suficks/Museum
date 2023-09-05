@@ -1,0 +1,7 @@
+@mixin forum ($fs, $fw, $lh) {
+  font: $fw $fs/$lh 'Forum';
+}
+
+@mixin roboto ($fs, $fw, $lh) {
+  font: $fw $fs/$lh 'Roboto';
+}
