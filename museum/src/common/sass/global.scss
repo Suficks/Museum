@@ -9,3 +9,26 @@ a {
 
   box-sizing: border-box;
 }
+
+.section__title {
+  position: relative;
+
+  padding-bottom: 25px;
+  margin: 0 0 78px;
+
+  @include forum (80px, 400, 90px);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: $color-gold;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 1440px;
+    width: 100%;
+    height: 3px;
+    background: $color-red;
+  }
+}
