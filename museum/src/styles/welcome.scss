@@ -32,7 +32,6 @@
 
   .button {
     @include roboto (22px, 300, 27px);
-    color: #FFFFFF;
     letter-spacing: 2px;
 
     margin-bottom: 272px;
@@ -48,6 +47,10 @@
     &:hover {
       background-color: $color-gold;
     }
+  }
+
+  .button__link {
+    color: #FFFFFF;
   }
 
   .slider__wrap {
