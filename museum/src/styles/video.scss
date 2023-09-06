@@ -1,0 +1,41 @@
+.video {
+
+  .video__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 114px;
+
+    margin-bottom: 75px;
+  }
+
+  .section__title {
+    margin: 0;
+    padding: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .subtitle {
+    margin: 0;
+    max-width: 720px;
+    width: 100%;
+
+    @include roboto (22px, 300, 38.5px);
+  }
+
+  .video__item {
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+  }
+
+  .play {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url('common/img/svg/play.svg');
+  }
+}

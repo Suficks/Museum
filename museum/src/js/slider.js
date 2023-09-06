@@ -13,3 +13,16 @@ $('.slider').slick({
   nextArrow: $('.next'),
   variableWidth: true,
 });
+
+// $('.video__slider').slick({
+//   dots: true,
+//   speed: 500,
+//   infinite: true,
+//   appendDots: $('.slider-dots'),
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   arrows: true,
+//   prevArrow: $('.prev'),
+//   nextArrow: $('.next'),
+//   variableWidth: true,
+// });
