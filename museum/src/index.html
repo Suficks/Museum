@@ -26,10 +26,10 @@
               <a href="#explore" class="item__link">Explore</a>
             </li>
             <li class="item">
-              <a href="" class="item__link">Video</a>
+              <a href="#video" class="item__link">Video</a>
             </li>
             <li class="item">
-              <a href="" class="item__link">Gallery</a>
+              <a href="#gallery" class="item__link">Gallery</a>
             </li>
             <li class="item">
               <a href="" class="item__link">Tickets</a>
@@ -171,14 +171,15 @@
     <!-- explore -->
 
     <!-- video -->
-    <section class="video">
+    <section class="video" id="video">
       <div class="wrapper">
         <div class="video__info">
           <h2 class="section__title">Video journey</h2>
           <p class="subtitle">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as
             Mona Lisa or Hammurabi's Code</p>
         </div>
-        <div class="videos__slider__wrap">
+
+        <div class="video__items__wrapper">
           <div class="video__slider">
             <video class="video__item" poster="./common/img/jpg/video-prevue-1.jpg" src="./common/video/video-1.mp4"
               type="video/mp4"></video>
@@ -191,38 +192,54 @@
             <video class="video__item" poster="./common/img/jpg/video-prevue-5.jpg" src="./common/video/video-5.mp4"
               type="video/mp4"></video>
           </div>
-
-          <button class="play"></button>
-          <div class="proggres__bar"></div>
-          <button class="volume"></button>
-          <div class="volume__bar"></div>
-          <button class="fullscreen"></button>
-
-          <div class="video__slider__iframe">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/zp1BXPX8jcU?si=cNhFMn5_R68Tndcj"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vi5D6FKhRmo?si=LEjZ_j1rqTxkhbrH"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/NOhDysLnTvY?si=2OIxa7-aNPVHIeAg"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aWmJ5DgyWPI?si=AVS6mQIEXDQlbYeg"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/2OR0OCr6uRE?si=wVsdscotHw3vbDlH"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+          <img class="big__play" src="./common/img/svg/big-play.svg" alt="play__item">
+          <div class="video__controls">
+            <img class="play" src="./common/img/svg/play.svg" alt="play__item"></img>
+            <input class="progress__line" value="0" type="range"></input>
+            <img class="volume" src="./common/img/svg/volume.svg" alt="volume"></img>
+            <input class="volume__bar" value="50" type="range"></input>
+            <img class="fullscreen" src="./common/img/svg/fullscreen.svg" alt="fullscreen__open"></img>
           </div>
+        </div>
+
+        <div class="iframe__slider">
+          <iframe class="iframe" height="254" src="https://www.youtube.com/embed/zp1BXPX8jcU?si=cNhFMn5_R68Tndcj"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <iframe class="iframe" height="254" src="https://www.youtube.com/embed/Vi5D6FKhRmo?si=LEjZ_j1rqTxkhbrH"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <iframe class="iframe" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY?si=2OIxa7-aNPVHIeAg"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <iframe class="iframe" height="254" src="https://www.youtube.com/embed/aWmJ5DgyWPI?si=AVS6mQIEXDQlbYeg"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <iframe class="iframe" height="254" src="https://www.youtube.com/embed/2OR0OCr6uRE?si=wVsdscotHw3vbDlH"
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+            web-share"></iframe>
+        </div>
+        <div class="slider__buttons">
+          <button class="video__prev">«</button>
+          <div class="buttons__container"></div>
+          <button class="video__next">»</button>
         </div>
       </div>
     </section>
+    <!-- video -->
+
+    <!-- gallery -->
+    <section class="gallery" id="gallery">
+      <div class="wrapper">
+        <div class="section__title">Art gallery</div>
+        <div class="gallery__container">
+          <div class="img__container"></div>
+        </div>
+        <div class="gradient"></div>
+      </div>
+    </section>
+    <!-- gallery -->
+
 
   </main>
 

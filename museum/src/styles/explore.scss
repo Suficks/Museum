@@ -1,6 +1,7 @@
 .explore {
   background-color: $color-dark;
   margin-bottom: 75px;
+  padding-top: 75px;
 
   .explore__wrap {
     display: flex;
@@ -8,7 +9,6 @@
   }
 
   .section__title {
-    padding-top: 75px;
     color: #fff;
 
     &:after {
