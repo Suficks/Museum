@@ -1,0 +1,118 @@
+.tickets {
+  margin-bottom: 75px;
+  @include roboto (22px, 300, 26px);
+
+  .tickets__container {
+    display: flex;
+  }
+
+  .type {
+    margin-left: 60px;
+  }
+
+  .subtitle {
+    @include roboto (28px, 700, 33px);
+    margin: 0 0 47px;
+  }
+
+  .amount__subtitle {
+    text-align: end;
+    margin-bottom: 25px;
+  }
+
+  .type__label {
+    display: block;
+    width: 270px;
+    margin-bottom: 15px;
+    padding: 5px;
+    margin-left: -5px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .input {
+    display: none;
+  }
+
+  .fake {
+    position: relative;
+    display: inline-block;
+    margin-right: 18px;
+    width: 15px;
+    height: 15px;
+    background-color: #FFF;
+    border: 2px solid #000;
+    border-radius: 50%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #000;
+      opacity: 0;
+    }
+  }
+
+  .input:checked+.fake::before {
+    opacity: 1;
+  }
+
+  .amount {
+    margin-left: auto;
+  }
+
+  .amount__wrap {
+    max-width: 150px;
+    margin-left: auto;
+
+  }
+
+  .amount__name {
+    margin: 0 0 15px;
+  }
+
+  .counter__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 3px solid #000;
+    padding: 3px 11px;
+    cursor: pointer;
+  }
+
+  .second {
+    margin-bottom: 50px;
+  }
+
+  .minus,
+  .plus {
+    @include roboto (32px, 400, 38px);
+  }
+
+  .total {
+    letter-spacing: 1.55px;
+    margin-bottom: 57px;
+  }
+
+  .buy {
+    padding: 13px 37px;
+    color: #FFF;
+    letter-spacing: 2px;
+    background-color: #000;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: #000;
+      background-color: $color-gold;
+    }
+  }
+}

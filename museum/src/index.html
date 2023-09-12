@@ -32,7 +32,7 @@
               <a href="#gallery" class="item__link">Gallery</a>
             </li>
             <li class="item">
-              <a href="" class="item__link">Tickets</a>
+              <a href="#tickets" class="item__link">Tickets</a>
             </li>
             <li class="item">
               <a href="" class="item__link">Contacts</a>
@@ -171,7 +171,7 @@
     <!-- explore -->
 
     <!-- video -->
-    <section class="video" id="video">
+    <!-- <section class="video" id="video">
       <div class="wrapper">
         <div class="video__info">
           <h2 class="section__title">Video journey</h2>
@@ -200,9 +200,9 @@
             <input class="volume__bar" value="50" type="range"></input>
             <img class="fullscreen" src="./common/img/svg/fullscreen.svg" alt="fullscreen__open"></img>
           </div>
-        </div>
+        </div> -->
 
-        <div class="iframe__slider">
+    <!-- <div class="iframe__slider">
           <iframe class="iframe" height="254" src="https://www.youtube.com/embed/zp1BXPX8jcU?si=cNhFMn5_R68Tndcj"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
@@ -218,14 +218,14 @@
           <iframe class="iframe" height="254" src="https://www.youtube.com/embed/2OR0OCr6uRE?si=wVsdscotHw3vbDlH"
             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
             web-share"></iframe>
-        </div>
-        <div class="slider__buttons">
+        </div> -->
+    <!-- <div class="slider__buttons">
           <button class="video__prev">«</button>
           <div class="buttons__container"></div>
           <button class="video__next">»</button>
         </div>
-      </div>
-    </section>
+      </div> -->
+    <!-- </section> -->
     <!-- video -->
 
     <!-- gallery -->
@@ -239,6 +239,61 @@
       </div>
     </section>
     <!-- gallery -->
+
+    <!-- tickets -->
+    <section class="tickets" id="tickets">
+      <div class="wrapper">
+        <div class="section__title">Buy tickets</div>
+        <div class="tickets__container">
+          <img src="./common/img/jpg/tickets-pic.jpg" alt="" class="tickets__pic">
+
+          <div class="type">
+            <h4 class="subtitle">Ticket Type</h4>
+            <label class="type__label">
+              <input class="input" type="radio" name="type" checked>
+              <span class="fake"></span>
+              <span class="type__name">Permanent exhibition</span>
+            </label>
+            <label class="type__label">
+              <input class="input" type="radio" name="type">
+              <span class="fake"></span>
+              <span class="type__name">Temporary exhibition</span>
+            </label>
+            <label class="type__label">
+              <input class="input" type="radio" name="type">
+              <span class="fake"></span>
+              <span class="type__name">Combined Admission</span>
+            </label>
+          </div>
+
+          <div class="amount">
+            <div class="amount__wrap">
+              <h4 class="subtitle amount__subtitle">Amount</h4>
+              <div class="counter">
+                <p class="amount__name">Basic 18+</p>
+                <div class="counter__item">
+                  <div class="minus">–</div>
+                  <div class="number">1</div>
+                  <div class="plus">+</div>
+                </div>
+              </div>
+              <div class="counter">
+                <p class="amount__name">Senior 65+</p>
+                <div class="counter__item second">
+                  <div class="minus">–</div>
+                  <div class="number">1</div>
+                  <div class="plus">+</div>
+                </div>
+              </div>
+              <div class="subtitle total">Total €220</div>
+            </div>
+            <button class="buy">Buy Now</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- tickets -->
 
 
   </main>
