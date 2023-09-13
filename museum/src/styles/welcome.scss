@@ -30,7 +30,8 @@
     letter-spacing: 2px;
   }
 
-  .button {
+  .button__link {
+    display: inline-block;
     @include roboto (22px, 300, 27px);
     letter-spacing: 2px;
 
@@ -115,8 +116,11 @@
 
   .prev,
   .next {
+    padding: 0;
     font-size: 30px;
     color: #FFFFFF;
+    background-color: transparent;
+    border: none;
 
     cursor: pointer;
     transition: 0.3s ease;

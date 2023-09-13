@@ -27,6 +27,7 @@ a {
 .logo__title {
   @include forum (28px, 400, 31px);
   letter-spacing: 5px;
+  margin: 0;
 }
 
 .section__title {

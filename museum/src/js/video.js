@@ -15,7 +15,7 @@ const backgroundNull = 'linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7,
 const videoPlay = (video) => {
   video.play();
   bigPlay.style.opacity = '0';
-  play.setAttribute('src', 'assets/pause.svg');
+  play.style.backgroundImage = 'url(assets/pause.svg)';
   videoControls.style.opacity = '0';
 
   videoControls.addEventListener('mouseenter', () => {
@@ -29,7 +29,7 @@ const videoPlay = (video) => {
 const videoPause = (video) => {
   video.pause();
   bigPlay.style.opacity = '1';
-  play.setAttribute('src', 'assets/play.svg');
+  play.style.backgroundImage = 'url(assets/play.svg)';
   videoControls.style.opacity = '1';
 
   videoControls.addEventListener('mouseenter', () => {
@@ -72,10 +72,10 @@ const toggleVolume = (video) => {
     video.volume = savedVolume / 100;
     volumeBar.value = savedVolume;
     volumeBar.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${savedVolume}%, rgb(196, 196, 196) ${savedVolume}%, rgb(196, 196, 196) 100%)`;
-    volumeBtn.setAttribute('src', 'assets/volume.svg');
+    volumeBtn.style.backgroundImage = 'url(assets/volume.svg)';
   } else {
     video.volume = 0;
-    volumeBtn.setAttribute('src', 'assets/mute.svg');
+    volumeBtn.style.backgroundImage = 'url(assets/mute.svg)';
     volumeBar.value = 0;
     volumeBar.style.background = backgroundNull;
   }
@@ -84,8 +84,8 @@ const toggleVolume = (video) => {
 const changeVolume = (video) => {
   const volume = volumeBar.value / 100;
   video.volume = volume;
-  if (video.volume === 0) volumeBtn.setAttribute('src', 'assets/mute.svg');
-  else volumeBtn.setAttribute('src', 'assets/volume.svg');
+  if (video.volume === 0) volumeBtn.style.backgroundImage = 'url(assets/mute.svg)';
+  else volumeBtn.style.backgroundImage = 'url(assets/volume.svg)';
 };
 
 const toggleFullscreen = (video) => {
@@ -93,11 +93,11 @@ const toggleFullscreen = (video) => {
     videoContainer.requestFullscreen()
       .catch((error) => console.log('Fullscreen request failed:', error));
     video.classList.add('video__item__fullscreen');
-    fullscreenBtn.setAttribute('src', 'assets/fullscreen_exit.svg');
+    fullscreenBtn.style.backgroundImage = 'url(assets/fullscreen_exit.svg)';
   } else if (document.fullscreenEnabled) {
     document.exitFullscreen();
     video.classList.remove('video__item__fullscreen');
-    fullscreenBtn.setAttribute('src', 'assets/fullscreen.svg');
+    fullscreenBtn.style.backgroundImage = 'url(assets/fullscreen.svg)';
   }
 };
 

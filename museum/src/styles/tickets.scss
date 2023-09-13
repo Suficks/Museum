@@ -27,6 +27,7 @@
     padding: 5px;
     margin-left: -5px;
     box-sizing: border-box;
+
     cursor: pointer;
   }
 
@@ -40,6 +41,7 @@
     margin-right: 18px;
     width: 15px;
     height: 15px;
+
     background-color: #FFF;
     border: 2px solid #000;
     border-radius: 50%;
@@ -52,6 +54,7 @@
       transform: translate(-50%, -50%);
       width: 7px;
       height: 7px;
+
       border-radius: 50%;
       background-color: #000;
       opacity: 0;
@@ -75,14 +78,24 @@
     margin: 0 0 15px;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .counter {
+    position: relative;
+  }
+
   .counter__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 10px;
+
+    width: 50px;
+    height: 50px;
+    // padding: 0 50px;
+    box-sizing: border-box;
+
     border: 3px solid #000;
-    padding: 3px 11px;
-    cursor: pointer;
   }
 
   .second {
@@ -91,7 +104,22 @@
 
   .minus,
   .plus {
+    position: absolute;
+    top: 50%;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
     @include roboto (32px, 400, 38px);
+    cursor: pointer;
+  }
+
+  .minus {
+    left: 12px;
+  }
+
+  .plus {
+    right: 14px;
   }
 
   .total {
@@ -101,11 +129,13 @@
 
   .buy {
     padding: 13px 37px;
+
     color: #FFF;
     letter-spacing: 2px;
     background-color: #000;
     border: none;
     border-radius: 2px;
+
     cursor: pointer;
     transition: 0.3s ease;
 
