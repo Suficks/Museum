@@ -1,12 +1,13 @@
 .footer {
+  position: relative;
   background-color: $color-dark;
-  padding-top: 84px;
+  padding: 84px 0 52px 0;
   color: #FFF;
 
   .footer__wrap {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 50px;
+    padding-bottom: 103px;
   }
 
   .logo {
@@ -63,5 +64,26 @@
     padding: 12px;
     border: 1px solid #FFF;
     border-radius: 50%;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer__item {
+    margin: 0;
+    @include roboto (22px, 100, 22px);
+    letter-spacing: 2px;
+    color: #FFF;
+
+  }
+
+  .line {
+    position: absolute;
+    bottom: 124px;
+    background-color: #666;
+    width: 100%;
+    height: 3px;
   }
 }
