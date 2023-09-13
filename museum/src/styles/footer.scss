@@ -6,8 +6,13 @@
 
   .footer__wrap {
     display: flex;
-    justify-content: space-between;
+    gap: 402px;
     padding-bottom: 103px;
+  }
+
+  .section__left {
+    display: flex;
+    gap: 140px;
   }
 
   .logo {
@@ -16,7 +21,7 @@
 
   .nav {
     display: flex;
-    gap: 150px;
+    gap: 173px;
   }
 
   .list {
@@ -61,9 +66,10 @@
   }
 
   .social__pic {
-    padding: 12px;
+    padding: 11px;
     border: 1px solid #FFF;
     border-radius: 50%;
+    line-height: 0;
   }
 
   .info {
@@ -76,7 +82,6 @@
     @include roboto (22px, 100, 22px);
     letter-spacing: 2px;
     color: #FFF;
-
   }
 
   .line {

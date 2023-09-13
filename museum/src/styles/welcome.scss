@@ -137,7 +137,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    gap: 57px;
 
     max-width: 600px;
     max-height: 120px;
@@ -152,6 +152,7 @@
     gap: 22px;
   }
 
+
   .first {
     position: relative;
 
@@ -159,7 +160,7 @@
       content: '';
       position: absolute;
       top: 50%;
-      left: 135%;
+      left: 140%;
       transform: translateY(-50%);
       width: 2px;
       height: 18px;
