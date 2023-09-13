@@ -1,0 +1,25 @@
+.contacts {
+  margin-bottom: 74px;
+
+  .contacts__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title {
+    @include roboto (28px, 500, 33px);
+    margin-bottom: 50px;
+  }
+
+  .contact {
+    display: block;
+    @include roboto (22px, 300, 26px);
+    margin-bottom: 25px;
+    color: #000;
+  }
+
+  #map {
+    width: 960px;
+    height: 620px;
+  }
+}
