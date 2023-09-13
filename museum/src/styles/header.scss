@@ -10,21 +10,6 @@
     padding: 59px 0;
   }
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-  }
-
-  .logo__pic {
-    display: block
-  }
-
-  .title {
-    @include forum (28px, 400, 31px);
-    letter-spacing: 5px;
-  }
-
   .list {
     display: flex;
     align-items: center;
