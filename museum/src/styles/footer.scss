@@ -63,30 +63,24 @@
 
   .social__item {
     align-self: flex-end;
+    width: 48px;
+    height: 48px;
   }
 
   .social__link {
     display: block;
-    width: 48px;
-    height: 48px;
-    border: 1px solid #FFF;
+    border: 1px solid #666;
     border-radius: 50%;
-
     transition: 0.3s ease;
 
     &:hover {
-      border: 1px solid $color-gold;
+      filter: invert(63%) sepia(31%) saturate(404%) hue-rotate(356deg) brightness(80%) contrast(81%);
     }
   }
 
   .social__pic {
     margin: 11px;
     line-height: 0;
-    transition: 0.3s ease;
-
-    &:hover {
-      filter: invert(63%) sepia(31%) saturate(404%) hue-rotate(356deg) brightness(80%) contrast(81%);
-    }
   }
 
   .info {

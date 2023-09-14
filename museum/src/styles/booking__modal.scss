@@ -1,0 +1,87 @@
+.booking__modal {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-300%);
+  padding: 91px 0;
+
+  max-width: 1440px;
+  height: 845px;
+  width: 100%;
+
+  background-color: #fff;
+  z-index: 1000;
+
+  .modal__wrap {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .logo__item {
+    display: block;
+  }
+
+  .title {
+    margin-bottom: 15px;
+    @include forum (50px, 400, 53px);
+    text-transform: uppercase;
+    color: $color-gold;
+  }
+
+  .subtitle {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 62px;
+    @include roboto (18px, 400, 21px);
+    color: $color-red;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      max-width: 400px;
+      width: 100%;
+      height: 3px;
+      background-color: $color-red;
+    }
+  }
+
+  .input {
+    display: block;
+    width: 400px;
+    height: 45px;
+    padding-left: 45px;
+
+    outline: none;
+    border: 1px solid $color-dark;
+    box-sizing: border-box;
+  }
+
+  .date,
+  .time {
+    max-width: 190px;
+    background: url('./common/img/svg/arrow-date-time.svg') no-repeat 92.5% 50%;
+    background-size: 19px 17px;
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3.5%;
+  }
+
+  .time__logo {
+    left: 55%;
+  }
+}
