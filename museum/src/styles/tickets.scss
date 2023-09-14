@@ -78,6 +78,10 @@
     margin: 0 0 15px;
   }
 
+  .senior__name {
+    margin-top: 10px;
+  }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -88,14 +92,13 @@
   }
 
   .counter__item {
-    margin-bottom: 10px;
-
-    width: 50px;
+    width: 150px;
     height: 50px;
-    // padding: 0 50px;
     box-sizing: border-box;
 
     border: 3px solid #000;
+    text-align: center;
+    font-size: 22px;
   }
 
   .second {
@@ -105,9 +108,6 @@
   .minus,
   .plus {
     position: absolute;
-    top: 50%;
-    padding: 0;
-
     background-color: transparent;
     border: none;
     @include roboto (32px, 400, 38px);
@@ -115,11 +115,21 @@
   }
 
   .minus {
-    left: 12px;
+    left: 6px;
   }
 
   .plus {
-    right: 14px;
+    right: 6px;
+  }
+
+  .minus__basic,
+  .plus__basic {
+    bottom: 5px;
+  }
+
+  .minus__senior,
+  .plus__senior {
+    top: 45px;
   }
 
   .total {
