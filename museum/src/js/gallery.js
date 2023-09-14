@@ -30,7 +30,6 @@ const randomPic = () => {
 randomPic();
 
 const onEntry = (entry, observer) => {
-  console.log('hi54685');
   entry.forEach((change) => {
     document.addEventListener('scroll', () => {
       if (window.scrollY === 0) {
