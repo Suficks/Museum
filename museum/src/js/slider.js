@@ -41,6 +41,7 @@ const number = document.querySelector('.first');
 const sliderBtns = [...document.querySelectorAll('[role="presentation"]')];
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
+const slider = document.querySelector('.slider');
 
 const sliderCountChange = () => {
   const activeBtn = document.querySelector('li.slick-active');
@@ -53,3 +54,4 @@ sliderBtns.forEach((item) => {
 });
 prevBtn.addEventListener('click', sliderCountChange);
 nextBtn.addEventListener('click', sliderCountChange);
+slider.addEventListener('mousemove', sliderCountChange);
