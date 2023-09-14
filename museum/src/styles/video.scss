@@ -78,6 +78,11 @@
   .volume,
   .fullscreen {
     cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      filter: invert(70%) sepia(13%) saturate(14%) hue-rotate(342deg) brightness(86%) contrast(81%);
+    }
   }
 
   .play {

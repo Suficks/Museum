@@ -65,11 +65,28 @@
     align-self: flex-end;
   }
 
-  .social__pic {
-    padding: 11px;
+  .social__link {
+    display: block;
+    width: 48px;
+    height: 48px;
     border: 1px solid #FFF;
     border-radius: 50%;
+
+    transition: 0.3s ease;
+
+    &:hover {
+      border: 1px solid $color-gold;
+    }
+  }
+
+  .social__pic {
+    margin: 11px;
     line-height: 0;
+    transition: 0.3s ease;
+
+    &:hover {
+      filter: invert(63%) sepia(31%) saturate(404%) hue-rotate(356deg) brightness(80%) contrast(81%);
+    }
   }
 
   .info {
@@ -82,6 +99,16 @@
     @include roboto (22px, 100, 22px);
     letter-spacing: 2px;
     color: #FFF;
+
+    transition: 0.3s ease;
+
+    &:hover:not(:first-child) {
+      color: $color-gold;
+    }
+
+    &:active:not(:first-child) {
+      color: #7E6C51;
+    }
   }
 
   .line {
