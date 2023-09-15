@@ -103,10 +103,17 @@
   .minus,
   .plus {
     position: absolute;
+
     background-color: transparent;
     border: none;
     @include roboto (32px, 400, 38px);
     cursor: pointer;
+
+    transition: 0.3s ease;
+
+    &:hover {
+      color: $color-gold;
+    }
   }
 
   .minus {
