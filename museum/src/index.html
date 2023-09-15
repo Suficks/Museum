@@ -390,44 +390,60 @@
         <img class="logo__item" src="./common/img/svg/ticket-logo.svg" alt="logo__item">
         <div class="title">Booking tickets</div>
         <div class="subtitle">Tour to Louvre</div>
-        <div class="inputs">
+        <div class="input__container">
           <img src="./common/img/svg/date.svg" alt="date" class="logo">
-          <input class="input date" type="date" value="Date">
+          <input class="input date" type="text" placeholder="Date" onfocus="(this.type='date')">
           <img src="./common/img/svg/time.svg" alt="time" class="logo time__logo">
-          <input class="input time" type="time">
+          <input class="input time" type="text" placeholder="Time" onfocus="(this.type='time')">
         </div>
-        <div class="inputs">
+        <div class="input__container">
           <img src="./common/img/svg/name.svg" alt="name" class="logo">
-          <input class="input name" type="text">
+          <input class="input name" type="text" placeholder="Name">
         </div>
-        <div class="inputs">
+        <div class="input__container">
           <img src="./common/img/svg/email.svg" alt="email" class="logo">
-          <input class="input email" type="email">
+          <input class="input email" type="email" placeholder="Email">
         </div>
-        <div class="inputs">
+        <div class="input__container">
           <img src="./common/img/svg/tel.svg" alt="tel" class="logo">
-          <input class="input tel" type="tel">
+          <input class="input tel" type="tel" placeholder="Phone">
         </div>
-        <select name="" id="">Ticket Type</select>
+        <div class="input__container">
+          <img src="./common/img/svg/select.svg" alt="select" class="logo">
+          <select class="input select">
+            <option value="" selected hidden class="select__placeholder">Ticket Type</option>
+            <option value="Permanent exhibition">Permanent exhibition</option>
+            <option value="Temporary exhibition">Temporary exhibition</option>
+            <option value="Combined Admission">Combined Admission</option>
+          </select>
+        </div>
         <div class="ticket__form">
           <div class="entry__title">Entry ticket</div>
-          <div class="type">Basic 18+ (20 €)</div>
-          <input type="number">
-          <div class="type">Basic 65+ (10 €)</div>
-          <input type="number">
+          <div class="inputs">
+            <p class="type">Basic 18+ (20 €)</p>
+            <button class="minus">–</button>
+            <input class="count__input" value="0" type="number">
+            <button class="plus">+</button>
+          </div>
+          <div class="inputs">
+            <p class="type">Senior 65+ (10 €)</p>
+            <button class="minus">–</button>
+            <input class="count__input" value="0" type="number">
+            <button class="plus">+</button>
+          </div>
         </div>
       </div>
       <div class="right__container">
         <div class="overview">Overview</div>
         <div class="subtitle overview__subtitle">Tour to Louvre</div>
         <div class="info overview__date">
-          <!-- <img src="" alt="info__logo" class="info__logo"> -->
+          <img src="./common/img/svg/date.svg" alt="info__logo" class="info__logo">
         </div>
         <div class="info overview__time">
-          <!-- <img src="" alt="info__logo" class="info__logo"> -->
+          <img src="./common/img/svg/time.svg" alt="info__logo" class="info__logo">
         </div>
         <div class="info overview__type">
-          <!-- <img src="" alt="info__logo" class="info__logo"> -->
+          <img src="./common/img/svg/check.svg" alt="info__logo" class="info__logo">
         </div>
         <img src="./common/img/jpg/ticket-pic.jpg" alt="" class="ticket__pic">
       </div>
@@ -435,7 +451,6 @@
   </form>
 
   <!-- booking modal -->
-
 </body>
 
 </html>
