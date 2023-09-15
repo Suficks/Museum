@@ -269,15 +269,15 @@
               <h4 class="subtitle amount__subtitle">Amount</h4>
               <div class="counter">
                 <p class="amount__name">Basic 18+</p>
-                <button class="minus minus__basic">–</button>
-                <input type="number" value="0" class="counter__item">
-                <button class="plus plus__basic">+</button>
+                <button class="minus minus__basic" onclick="this.nextElementSibling.stepDown();">–</button>
+                <input type="number" value="0" min="0" max="20" class="counter__item">
+                <button class="plus plus__basic" onclick="this.previousElementSibling.stepUp();">+</button>
               </div>
               <div class="counter">
                 <p class="amount__name senior__name">Senior 65+</p>
-                <button class="minus minus__senior">–</button>
-                <input type="number" value="0" class="counter__item second">
-                <button class="plus plus__senior">+</button>
+                <button class="minus minus__senior" onclick="this.nextElementSibling.stepDown();">–</button>
+                <input type="number" value="0" min="0" max="20" class="counter__item second">
+                <button class="plus plus__senior" onclick="this.previousElementSibling.stepUp();">+</button>
               </div>
               <div class="subtitle total">Total €220</div>
             </div>
@@ -388,8 +388,8 @@
     <div class="modal__wrap">
       <div class="left__container">
         <img class="logo__item" src="./common/img/svg/ticket-logo.svg" alt="logo__item">
-        <div class="title">Booking tickets</div>
-        <div class="subtitle">Tour to Louvre</div>
+        <h2 class="title">Booking tickets</h2>
+        <h3 class="subtitle">Tour to Louvre</h3>
         <div class="input__container">
           <img src="./common/img/svg/date.svg" alt="date" class="logo">
           <input class="input date" type="text" placeholder="Date" onfocus="(this.type='date')">
@@ -421,21 +421,21 @@
           <div class="entry__title">Entry ticket</div>
           <div class="inputs">
             <p class="type">Basic 18+ (20 €)</p>
-            <button class="minus">–</button>
-            <input class="count__input" value="0" type="number">
-            <button class="plus">+</button>
+            <button class="minus" onclick="this.nextElementSibling.stepDown();">–</button>
+            <input class="count__input" value="0" min="0" type="number">
+            <button class="plus" onclick="this.previousElementSibling.stepUp();">+</button>
           </div>
           <div class="inputs">
             <p class="type">Senior 65+ (10 €)</p>
-            <button class="minus">–</button>
-            <input class="count__input" value="0" type="number">
-            <button class="plus">+</button>
+            <button class="minus" onclick="this.nextElementSibling.stepDown();">–</button>
+            <input class="count__input" value="0" min="0" type="number">
+            <button class="plus" onclick="this.previousElementSibling.stepUp();">+</button>
           </div>
         </div>
       </div>
       <div class="right__container">
-        <div class="overview">Overview</div>
-        <div class="subtitle overview__subtitle">Tour to Louvre</div>
+        <h3 class="overview">Overview</h3>
+        <h4 class="overview__subtitle">Tour to Louvre</h4>
         <div class="info overview__date">
           <img src="./common/img/svg/date.svg" alt="info__logo" class="info__logo">
         </div>
@@ -446,6 +446,45 @@
           <img src="./common/img/svg/check.svg" alt="info__logo" class="info__logo">
         </div>
         <img src="./common/img/jpg/ticket-pic.jpg" alt="" class="ticket__pic">
+        <div class="ticket">
+          <div class="ticket__wrap">
+            <p class="amount">2</p>
+            <p class="cost">Basic (20 €)</p>
+          </div>
+          <p class="cost">40 €</p>
+        </div>
+        <div class="ticket senior">
+          <div class="ticket__wrap">
+            <p class="amount">2</p>
+            <p class="cost">Senior (10 €)</p>
+          </div>
+          <p class="cost">20 €</p>
+        </div>
+        <div class="total__wrap">
+          <p class="total">Total:</p>
+          <p class="total__cost">60 €</p>
+        </div>
+        <div class="card">
+          <label class="label">
+            <p class="label__name">Card number</p>
+            <input type="number" class="card__input">
+          </label>
+          <label class="label">
+            <p class="label__name">Expiration date</p>
+            <button class="number__less month__less" onclick="this.nextElementSibling.stepDown();"></button>
+            <input type="number" value="03" class="card__input month">
+            <button class="number__more month__more" onclick="this.previousElementSibling.stepUp();"></button>
+          </label>
+          <button class="number__less year__less" onclick="this.nextElementSibling.stepDown();"></button>
+          <input type="number" value="2024" class="card__input year">
+          <button class="number__less year__more" onclick="this.previousElementSibling.stepUp();"></button>
+          <label class="label">
+            <p class="label__name">Cardholder name</p>
+            <input type="number" class="card__input">
+          </label>
+          <img src="./common/img/svg/Visa.svg" alt="visa" class="visa">
+          <img src="./common/img/svg/Mastercard.svg" alt="mastercard" class="mastercard">
+        </div>
       </div>
     </div>
   </form>

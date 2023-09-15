@@ -23,7 +23,7 @@
   }
 
   .title {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
     @include forum (50px, 400, 53px);
     text-transform: uppercase;
     color: $color-gold;
@@ -32,7 +32,7 @@
   .subtitle {
     position: relative;
     padding-bottom: 10px;
-    margin-bottom: 62px;
+    margin: 0 0 62px;
     @include roboto (18px, 400, 21px);
     color: $color-red;
 
@@ -87,6 +87,8 @@
 
   .time__logo {
     left: 56%;
+    width: 17px;
+    height: 16px;
   }
 
   .select {
@@ -188,4 +190,108 @@
     right: 19%;
   }
 
+  .right__container {
+    position: relative;
+    max-width: 530px;
+    width: 100%;
+    padding: 25px 30px;
+    box-sizing: border-box;
+    border: 1px solid $color-dark;
+  }
+
+  .overview {
+    @include roboto (32px, 500, 38px);
+    margin: 0 0 2px;
+  }
+
+  .overview__subtitle {
+    @include roboto (22px, 500, 26px);
+    color: $color-red;
+    margin: 0 0 10px;
+  }
+
+  .info__logo {
+    width: 18px;
+    height: 15px;
+  }
+
+  .ticket__pic {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+  }
+
+  .info {
+    margin-bottom: 8px;
+  }
+
+  .overview__type {
+    margin-bottom: 21px;
+  }
+
+  .ticket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .ticket__wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .amount {
+    width: 32px;
+    height: 20px;
+    text-align: center;
+    margin: 0;
+
+    @include roboto (18px, 400, 19px);
+    background-color: $color-dark;
+    color: #A4A4A3;
+    border-radius: 5px;
+  }
+
+  .cost {
+    @include roboto (22px, 400, 27px);
+    margin: 0;
+  }
+
+  .senior {
+    position: relative;
+    padding-bottom: 9px;
+    margin-bottom: 10px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      max-width: 470px;
+      width: 100%;
+      height: 2px;
+      background-color: $color-red;
+    }
+  }
+
+  .total__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .total,
+  .total__cost {
+    margin: 0;
+    @include roboto (32px, 400, 38px);
+    color: $color-dark;
+  }
+
+  .total__cost {
+    font-weight: 500;
+  }
 }
