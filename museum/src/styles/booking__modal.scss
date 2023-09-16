@@ -6,11 +6,10 @@
   padding: 91px 0;
 
   max-width: 1440px;
-  height: 845px;
   width: 100%;
 
   background-color: #fff;
-  z-index: 1000;
+  z-index: 1004;
 
   .modal__wrap {
     display: flex;
@@ -412,9 +411,16 @@
     @include roboto (22px, 400, 24px);
     cursor: pointer;
     transition: 0.3s ease;
-
-    &:hover {
-      background-color: $color-gold;
-    }
   }
+
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+}
+
+.modal__active {
+  transform: translateX(0);
 }
