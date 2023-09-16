@@ -4,3 +4,4 @@ import './js/slider';
 // import './js/video';
 import './js/gallery';
 import './js/map';
+import './js/tickets';
