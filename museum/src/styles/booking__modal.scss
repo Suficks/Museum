@@ -294,4 +294,127 @@
   .total__cost {
     font-weight: 500;
   }
+
+  .card {
+    position: relative;
+    max-width: 360px;
+    width: 100%;
+    height: 211px;
+    z-index: 2;
+    padding: 15px 20px;
+    margin-bottom: 56px;
+    box-sizing: border-box;
+
+    background-color: #BCBCBC;
+    border-radius: 3px;
+  }
+
+  .label__name {
+    margin: 0 0 5px;
+    @include roboto (12px, 400, 14px);
+    color: #161615;
+  }
+
+  .card__input {
+    max-width: 215px;
+    width: 100%;
+    height: 35px;
+    padding: 0 0 0 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+
+    outline: none;
+    border: none;
+  }
+
+  .expiration__label {
+    display: flex;
+    gap: 15px;
+  }
+
+  .month,
+  .year {
+    width: 100px;
+    @include roboto (12px, 400, 15px);
+    color: #161615;
+  }
+
+  .name__input {
+    margin-bottom: 0;
+    max-width: 320px;
+  }
+
+  .visa {
+    position: absolute;
+    top: 34px;
+    right: 20px;
+  }
+
+  .mastercard {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+  }
+
+  .card__reverse {
+    position: absolute;
+    bottom: 97px;
+    right: 30px;
+    max-width: 360px;
+    width: 100%;
+    height: 211px;
+    z-index: 1;
+    padding: 25px 20px 15px;
+    box-sizing: border-box;
+
+    background-color: #939393;
+    border-radius: 3px;
+  }
+
+  .card__line {
+    width: 100%;
+    height: 45px;
+    padding-right: 20px;
+    margin-bottom: 15px;
+    background-color: #161615;
+  }
+
+  .card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .cvc {
+    text-align: center;
+  }
+
+  .cvc__input {
+    max-width: 75px;
+    margin-bottom: 6px;
+  }
+
+  .text {
+    margin: 0 10px;
+    @include roboto (10px, 400, 12px);
+    color: #161615;
+  }
+
+  .book__btn {
+    display: block;
+    padding: 13px 85px 10px;
+    margin-left: auto;
+
+    background-color: $color-red;
+    border: none;
+
+    color: #FFf;
+    @include roboto (22px, 400, 24px);
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: $color-gold;
+    }
+  }
 }

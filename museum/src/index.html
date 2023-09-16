@@ -469,22 +469,33 @@
             <p class="label__name">Card number</p>
             <input type="number" class="card__input">
           </label>
-          <label class="label">
-            <p class="label__name">Expiration date</p>
-            <button class="number__less month__less" onclick="this.nextElementSibling.stepDown();"></button>
+          <p class="label__name">Expiration date</p>
+          <label class="label expiration__label">
+            <!-- <button class="number__less month__less" onclick="this.nextElementSibling.stepDown();"></button> -->
             <input type="number" value="03" class="card__input month">
-            <button class="number__more month__more" onclick="this.previousElementSibling.stepUp();"></button>
+            <!-- <button class="number__more month__more" onclick="this.previousElementSibling.stepUp();"></button> -->
+            <input type="number" value="2024" class="card__input year">
           </label>
-          <button class="number__less year__less" onclick="this.nextElementSibling.stepDown();"></button>
-          <input type="number" value="2024" class="card__input year">
-          <button class="number__less year__more" onclick="this.previousElementSibling.stepUp();"></button>
+          <!-- <button class="number__less year__less" onclick="this.nextElementSibling.stepDown();"></button> -->
+          <!-- <button class="number__more year__more" onclick="this.previousElementSibling.stepUp();"></button> -->
           <label class="label">
             <p class="label__name">Cardholder name</p>
-            <input type="number" class="card__input">
+            <input type="number" class="card__input name__input">
           </label>
           <img src="./common/img/svg/Visa.svg" alt="visa" class="visa">
           <img src="./common/img/svg/Mastercard.svg" alt="mastercard" class="mastercard">
         </div>
+        <div class="card__reverse">
+          <div class="card__line"></div>
+          <div class="card__info">
+            <label class="cvc__label">
+              <p class="label__name cvc">CVC/CVV</p>
+              <input type="number" class="card__input cvc__input">
+            </label>
+            <p class="text">The last<br> 3 or 4 digits<br> on back<br> of the card</p>
+          </div>
+        </div>
+        <button class="book__btn">Book</button>
       </div>
     </div>
   </form>
