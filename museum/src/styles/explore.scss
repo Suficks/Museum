@@ -4,6 +4,7 @@
   padding-top: 75px;
 
   .explore__wrap {
+    position: relative;
     display: flex;
     gap: 60px;
   }
@@ -37,60 +38,85 @@
     color: #CAAA7D;
   }
 
-  .slider__wrap {
+  .slider__comparison {
+    position: absolute;
+    right: 0;
+    top: 15px;
+  }
+
+  .drag__line {
+    position: absolute;
+    left: 61%;
+    width: 5px;
+    height: 700px;
+    pointer-events: none;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 330px;
+      background-color: #fff;
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &:after {
+      bottom: 0;
+    }
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 39px;
+    height: 39px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .slider__change {
+    position: relative;
+    width: 720px;
+
+    outline: none;
+    background: none;
+    -webkit-appearance: none;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: none;
+    width: 5px;
+    height: 700px;
+    cursor: pointer;
+  }
+
+  .slider__imgs {
     position: relative;
     max-width: 720px;
     max-height: 700px;
     width: 100%;
   }
 
-  .slider__change {
+  .slider__before {
     position: absolute;
     top: 15px;
-    left: 61%;
-    z-index: 2;
-
-    width: 5px;
-    height: 47%;
-
-    background-color: #fff;
-    cursor: pointer;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 39px;
-      height: 39px;
-      box-sizing: border-box;
-      border-radius: 50%;
-      border: 5px solid #fff;
-
-      cursor: pointer;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 111%;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 5px;
-      height: 101.7%;
-
-      background-color: #fff;
-      cursor: pointer;
-    }
+    background: url('./common/img/jpg/slider-pic-before.jpg') no-repeat;
+    width: 61%;
+    height: 100%;
   }
 
-  .slider__before,
   .slider__after {
-    position: absolute;
-    top: 15px;
-    right: 0;
+    background: url('./common/img/jpg/slider-pic-after.jpg') no-repeat;
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
   }
 }

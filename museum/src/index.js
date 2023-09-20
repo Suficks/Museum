@@ -5,3 +5,4 @@ import './js/slider';
 import './js/gallery';
 import './js/map';
 import './js/tickets';
+import './js/sliderBeforeAfter';
