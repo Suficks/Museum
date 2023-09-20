@@ -3,6 +3,7 @@
   background-color: $color-dark;
 
   .header__wrap {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,6 +35,54 @@
 
     &:active {
       color: #7E6C51;
+    }
+  }
+
+  .burger__menu {
+    position: absolute;
+    top: 56px;
+    right: 20px;
+    height: 18px;
+    width: 32px;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .line {
+    display: block;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 2px;
+    background-color: #fff;
+    transition: 2s ease;
+  }
+
+  .line__first {
+    top: 0;
+  }
+
+  .line__second {
+    top: 50%;
+    transform: translateY(-100%);
+  }
+
+  .line__third {
+    bottom: 0;
+  }
+
+  .burger__close {
+    .line__first {
+      transform: rotate(45deg);
+    }
+
+    .line__second {
+      display: none;
+    }
+
+    .line__third {
+      transform: rotate(-45deg);
+      bottom: auto;
     }
   }
 }
