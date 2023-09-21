@@ -3,7 +3,7 @@
   top: 5%;
   left: 50%;
   padding: 91px 0;
-  transform: translateX(-50%);
+  transform: translateX(-400%);
   z-index: 1004;
 
   max-width: 1440px;
@@ -310,6 +310,7 @@
   }
 
   .label__name {
+    display: block;
     margin: 0 0 5px;
     @include roboto (12px, 400, 14px);
     color: #161615;
@@ -320,7 +321,7 @@
     width: 100%;
     height: 35px;
     padding: 0 0 0 10px;
-    margin-bottom: 10px;
+    margin: 0 11px 10px 0;
     box-sizing: border-box;
 
     @include roboto (12px, 400, 15px);
@@ -330,10 +331,6 @@
     border: none;
   }
 
-  .expiration__label {
-    display: flex;
-    gap: 15px;
-  }
 
   .month,
   .year {
@@ -392,7 +389,7 @@
 
   .cvc__input {
     max-width: 75px;
-    margin-bottom: 6px;
+    margin: 0 0 6px;
   }
 
   .text {

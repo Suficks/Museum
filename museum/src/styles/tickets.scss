@@ -3,11 +3,22 @@
   @include roboto (22px, 300, 26px);
 
   .tickets__container {
+    display: grid;
+    grid-template-columns: 51% 49%;
+  }
+
+  .tickets__pic {
+    max-width: 720px;
+    width: 100%;
+  }
+
+  .main__container {
     display: flex;
+    justify-content: space-between;
   }
 
   .type {
-    margin-left: 60px;
+    margin-left: 46px;
   }
 
   .subtitle {
@@ -65,10 +76,6 @@
     opacity: 1;
   }
 
-  .amount {
-    margin-left: auto;
-  }
-
   .amount__wrap {
     max-width: 150px;
     margin-left: auto;
@@ -121,7 +128,7 @@
   }
 
   .plus {
-    right: 6px;
+    right: 10px;
   }
 
   .minus__basic,

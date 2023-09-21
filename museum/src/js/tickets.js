@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable consistent-return */
 // Открытие/закрытие модального окна
 
 const buyBtn = document.querySelector('.buy');
@@ -32,8 +30,8 @@ const createRipple = (e) => {
 
   ripple.style.width = `${diameter}px`;
   ripple.style.height = `${diameter}px`;
-  ripple.style.left = `${e.pageX - (button.getBoundingClientRect().left + scrollX) - radius}px`;
-  ripple.style.top = `${e.pageY - (button.getBoundingClientRect().top + scrollY) - radius}px`;
+  ripple.style.left = `${e.pageX - (button.getBoundingClientRect().left + window.scrollX) - radius}px`;
+  ripple.style.top = `${e.pageY - (button.getBoundingClientRect().top + window.scrollY) - radius}px`;
   ripple.classList.add('ripple');
   bookBtn.appendChild(ripple);
 

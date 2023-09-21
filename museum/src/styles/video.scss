@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 114px;
+    justify-content: space-between;
 
     margin-bottom: 75px;
   }
@@ -139,7 +139,6 @@
   }
 
   .iframe__slider {
-    width: 1440px;
     overflow: hidden;
   }
 
@@ -153,7 +152,8 @@
   }
 
   .iframe__slider .slick-slide {
-    width: 452px;
+    max-width: 452px;
+    width: 100%;
   }
 
   .iframe__slider .slick-track {

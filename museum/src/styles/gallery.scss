@@ -17,11 +17,12 @@
 
   .gallery__container {
     overflow-y: hidden;
-    height: 1958px;
+    max-height: 1958px;
+    height: 100%;
   }
 
   .gallery__img {
-    max-width: 456px;
+    max-width: calc(33.33% - 24px);
     opacity: 0;
     transform: translateY(40px);
     transition: 0.8s ease;
@@ -43,7 +44,8 @@
   .img__container {
     display: flex;
     flex-flow: column wrap;
-    height: 2970px;
+    max-height: 2970px;
+    height: 100%;
     gap: 24px;
     column-gap: 36px;
   }

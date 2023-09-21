@@ -2,14 +2,17 @@
   margin-bottom: 72px;
 
   .cards {
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, 440px);
     grid-row-gap: 72px;
     grid-column-gap: 60px;
+    justify-content: center;
   }
 
-  .card {
+  .card__link {
     cursor: pointer;
+    display: block;
 
     &:hover {
       .card__title {
@@ -21,6 +24,8 @@
   }
 
   .card__img {
+    max-width: 440px;
+    width: 100%;
     margin-bottom: 20px;
   }
 

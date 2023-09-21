@@ -6,7 +6,7 @@
 
   .footer__wrap {
     display: flex;
-    gap: 402px;
+    justify-content: space-between;
     padding-bottom: 103px;
   }
 
@@ -69,6 +69,7 @@
 
   .social__link {
     display: block;
+    height: 100%;
     border: 1px solid #666;
     border-radius: 50%;
     transition: 0.3s ease;
