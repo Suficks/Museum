@@ -1,7 +1,8 @@
 @media screen and (max-width: 1024px) {
   .header {
     .header__wrap {
-      padding: 49.5px 0;
+      @include rubber (padding-top, 39.5, 49.5, 768, 1024);
+      @include rubber (padding-bottom, 39.5, 49.5, 768, 1024);
     }
 
     .list {
@@ -43,6 +44,27 @@
 
     .burger__menu {
       opacity: 1;
+    }
+  }
+
+  .welcome {
+    .welcome__info {
+      @include rubber (padding-top, 0, 50, 768, 1024);
+    }
+
+    .welcome__title {
+      @include rubber (font-size, 40, 50, 768, 1024);
+      @include rubber (line-height, 57, 90, 768, 1024);
+    }
+
+    .subtitle {
+      @include rubber (font-size, 20, 24, 768, 1024);
+      @include rubber (line-height, 20, 28, 768, 1024);
+    }
+
+    .slick-dots button {
+      @include rubber (width, 12, 12, 768, 1024);
+      @include rubber (height, 12, 12, 768, 1024);
     }
   }
 

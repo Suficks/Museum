@@ -1,0 +1,50 @@
+@media screen and (max-width: 768px) {
+  .header {
+    .burger__menu {
+      top: 42px;
+    }
+  }
+
+  .welcome {
+    .welcome__wrap {
+      padding-bottom: 649px;
+    }
+
+    .welcome__info {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .button__link {
+      display: none;
+    }
+
+    .slider__wrap {
+      top: 24.5%;
+      left: 0;
+      max-width: 728px;
+      width: 100%;
+    }
+
+    .slick-slide {
+      width: 728px;
+      height: 546px;
+    }
+
+    .slider__pic {
+      height: 546px;
+    }
+
+    .slider__menu {
+      max-width: 100%;
+      width: 100%;
+      justify-content: center;
+      padding: 31px 0;
+      gap: 45px;
+    }
+
+    .shadow {
+      display: none;
+    }
+  }
+}
