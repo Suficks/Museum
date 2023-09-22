@@ -57,6 +57,7 @@
     .welcome__title {
       @include rubber (font-size, 40, 50, 768, 1024);
       @include rubber (line-height, 57, 90, 768, 1024);
+      margin-bottom: 27px;
     }
 
     .subtitle {
@@ -114,25 +115,71 @@
 
   .explore {
     @include rubber (padding-top, 40, 60, 768, 1024);
-    @include rubber (padding-bottom, 55, 75, 1024, 1440);
-    @include rubber (margin-bottom, 60, 75, 1024, 1440);
+    @include rubber (padding-bottom, 40, 60, 768, 1024);
+    @include rubber (margin-bottom, 40, 60, 768, 1024);
+  }
 
-    .slider__wrap {
-      @include rubber (max-width, 728, 720, 768, 1024);
-      @include rubber (max-height, 705, 700, 768, 1024);
+  .video {
+    @include rubber (margin-bottom, 75, 53, 768, 1024);
+
+    .video__items__wrapper {
+      @include rubber (margin-bottom, 20, 40, 768, 1024);
+    }
+
+    .video__info {
+      @include rubber (margin-bottom, 20, 36, 768, 1024);
+    }
+
+    .big__play {
+      @include rubber (width, 80, 152, 768, 1024);
+      @include rubber (height, 80, 152, 768, 1024);
+    }
+
+    .iframe__slider .slick-slide {
+      @include rubber (width, 354, 300, 768, 1024);
+    }
+
+    .iframe__slider .slick-track {
+      @include rubber (gap, 20, 42, 768, 1024);
+    }
+
+    .iframe {
+      @include rubber (height, 199, 170, 768, 1024);
+    }
+  }
+
+  .gallery {
+    @include rubber (padding-top, 40, 60, 768, 1024);
+    @include rubber (margin-bottom, 40, 60, 768, 1024);
+
+    .gallery__container {
+      @include rubber (height, 1080, 1265, 768, 1024);
+    }
+
+    .img__container {
+      @include rubber (height, 3224, 1996, 768, 1024);
+      column-gap: 24px;
+    }
+
+    .gallery__img {
+      max-width: calc(50% - 12px);
+    }
+
+    .section__title {
+      @include rubber (margin-bottom, 40, 60, 768, 1024);
     }
   }
 
   .tickets {
-    @include rubber (margin-bottom, 60, 75, 1024, 1440);
+    @include rubber (margin-bottom, 40, 60, 768, 1024);
 
     .tickets__container {
       grid-template-columns: 79% 21%;
     }
 
     .tickets__pic {
-      @include rubber (width, 700, 720, 1024, 1440);
-      @include rubber (height, 440, 550, 1024, 1440);
+      @include rubber (width, 444, 700, 768, 1024);
+      @include rubber (height, 340, 440, 768, 1024);
     }
 
     .amount__wrap {
@@ -140,7 +187,7 @@
     }
 
     .counter__item {
-      @include rubber (width, 175, 150, 1024, 1440);
+      width: 175px;
     }
 
     .amount__subtitle {
@@ -171,6 +218,81 @@
     .minus__senior,
     .plus__senior {
       top: 40px;
+    }
+  }
+
+  .parallax {
+    @include rubber (height, 300, 400, 768, 1024);
+    @include rubber (margin-bottom, 40, 60, 768, 1024);
+  }
+
+  .contacts {
+    @include rubber (margin-bottom, 66, 62, 768, 1024);
+
+    #map {
+      @include rubber (width, 728, 694, 768, 1024);
+      @include rubber (height, 476, 454, 768, 1024);
+      align-self: center;
+    }
+
+    .title {
+      @include rubber (font-size, 20, 24, 768, 1024);
+      @include rubber (line-height, 25, 29, 768, 1024);
+    }
+
+    .contacts__wrap {
+      flex-direction: column;
+    }
+
+    .title {
+      margin-bottom: 40px;
+    }
+
+    .contact {
+      &:last-child {
+        margin-bottom: 40px;
+      }
+    }
+
+    .contact {
+      @include rubber (font-size, 18, 20, 768, 1024);
+      @include rubber (line-height, 21, 23, 768, 1024);
+    }
+  }
+
+  .footer {
+    @include rubber (padding-top, 55, 65, 768, 1024);
+
+    .footer__wrap {
+      @include rubber (padding-bottom, 82, 103, 768, 1024);
+      flex-direction: column;
+      gap: 49px;
+    }
+
+    .logo {
+      position: relative;
+      bottom: 10px;
+    }
+
+    .section__left {
+      @include rubber (gap, 99, 40, 768, 1024);
+    }
+
+    .nav {
+      @include rubber (gap, 184, 120, 768, 1024);
+    }
+
+    .item__link {
+      @include rubber (font-size, 18, 22, 768, 1024);
+      @include rubber (line-height, 21, 26, 768, 1024);
+    }
+
+    .socials {
+      @include rubber (margin-left, 298, 630, 768, 1024);
+    }
+
+    .line {
+      bottom: 112px;
     }
   }
 }

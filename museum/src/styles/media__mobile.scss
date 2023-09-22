@@ -1,3 +1,11 @@
+@media screen and (max-width: 900px) {
+  .tickets {
+    .tickets__container {
+      grid-template-columns: 69% 31%;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header {
     .burger__menu {
@@ -55,6 +63,11 @@
   }
 
   .explore {
+    .slider__wrap {
+      max-width: 728px;
+      max-height: 705px;
+    }
+
     .explore__info {
       display: none;
     }
@@ -96,6 +109,84 @@
     .circle {
       top: 52%;
     }
+  }
 
+  .video {
+    .video__slider .slick-track {
+      height: 386px;
+    }
+
+    .video__controls {
+      justify-content: space-around;
+      height: 64px;
+      bottom: -5px;
+    }
+
+    .play {
+      margin-left: 10px;
+    }
+
+    .progress__line {
+      position: absolute;
+      align-self: flex-start;
+      width: 100%;
+    }
+
+    .volume__bar {
+      width: 488px;
+      max-width: 100%;
+    }
+
+    .volume {
+      width: 27px;
+      height: 21px;
+    }
+
+    .fullscreen {
+      width: 27px;
+      height: 27px;
+    }
+
+    .iframe__slider {
+      margin-bottom: 7px;
+    }
+
+    .slick-dots button {
+      height: 10px;
+      width: 10px;
+      padding: 0;
+    }
+
+    .slick-dots li {
+      width: 31px;
+    }
+
+    .video__prev,
+    .video__next {
+      font-size: 22px;
+    }
+  }
+
+  .tickets {
+    .amount__subtitle {
+      text-align: start;
+      margin-bottom: 39px;
+    }
+
+    .senior__name {
+      margin-top: 25px;
+    }
+
+    .second {
+      margin-bottom: 37px;
+    }
+
+    .total {
+      margin-bottom: 40px;
+    }
+
+    .buy {
+      padding: 13px 37px;
+    }
   }
 }
