@@ -8,13 +8,15 @@
     .list {
       position: absolute;
       left: 0;
-      top: 129px;
-      padding: 35px 120px 287px 34px;
+      top: 99%;
+      padding: 35px 0 0 34px;
+      @include rubber (padding-right, 45, 120, 768, 1024);
+      box-sizing: border-box;
       flex-direction: column;
       gap: 25px;
       background-color: $color-dark;
       align-items: flex-start;
-      z-index: 1000;
+      z-index: 1001;
       transition: 0.3s ease;
       transform: translateX(-300%);
     }
