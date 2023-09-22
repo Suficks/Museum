@@ -55,7 +55,7 @@
     width: 32px;
     height: 2px;
     background-color: #fff;
-    transition: 2s ease;
+    transition: 0.3s ease;
   }
 
   .line__first {
@@ -73,6 +73,7 @@
 
   .burger__close {
     .line__first {
+      top: 50%;
       transform: rotate(45deg);
     }
 
@@ -81,8 +82,8 @@
     }
 
     .line__third {
+      top: 50%;
       transform: rotate(-45deg);
-      bottom: auto;
     }
   }
 }

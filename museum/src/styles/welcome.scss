@@ -13,9 +13,14 @@
     max-width: 598px;
     padding-top: 150px;
     z-index: 2;
+    transition: 0.3s ease;
   }
 
-  .title {
+  .welcome__info__hidden {
+    opacity: 0;
+  }
+
+  .welcome__title {
     margin: 0 0 25px;
 
     @include forum (80px, 400, 90px);

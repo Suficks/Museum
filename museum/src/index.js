@@ -6,8 +6,4 @@ import './js/gallery';
 import './js/map';
 import './js/tickets';
 import './js/sliderBeforeAfter';
-
-const burger = document.querySelector('.burger__menu');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('burger__close');
-});
+import './js/burger';

@@ -1,77 +1,80 @@
 @media screen and (max-width: 1500px) {
   .video {
     .iframe__slider .slick-slide {
-      width: calc(300px + (452 - 300) * ((100vw - 1024px) / (1500 - 1024)));
+      @include rubber (width, 300, 452, 1024, 1500);
     }
 
     .iframe {
-      height: calc(170px + (254 - 170) * ((100vw - 1024px) / (1500 - 1024)));
+      @include rubber (height, 170, 254, 1024, 1500);
     }
   }
 }
 
 @media screen and (max-width: 1440px) {
   .welcome {
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
 
     .welcome__info {
-      padding-top: calc(50px + (150 - 50) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (padding-top, 50, 150, 1024, 1440);
     }
 
-    .title {
-      font-size: calc(50px + (80 - 50) * ((100vw - 1024px) / (1440 - 1024)));
+    .welcome__title {
+      @include rubber (font-size, 50, 80, 1024, 1440);
     }
 
     .subtitle {
-      font-size: calc(24px + (28 - 24) * ((100vw - 1024px) / (1440 - 1024)));
-      line-height: calc(28px + (33 - 28) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 24, 28, 1024, 1440);
+      @include rubber (line-height, 28, 33, 1024, 1440);
       margin-bottom: 50px;
     }
 
     .button__link {
-      font-size: calc(20px + (22 - 20) * ((100vw - 1024px) / (1440 - 1024)));
-      padding: calc(17px + (24 - 17) * ((100vw - 1024px) / (1440 - 1024))) calc(45px + (68 - 45) * ((100vw - 1024px) / (1440 - 1024)));
-      margin-bottom: calc(192px + (272 - 192) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 20, 22, 1024, 1440);
+      @include rubber (padding-top, 17, 24, 1024, 1440);
+      @include rubber (padding-bottom, 17, 24, 1024, 1440);
+      @include rubber (padding-right, 45, 68, 1024, 1440);
+      @include rubber (padding-left, 45, 68, 1024, 1440);
+      @include rubber (margin-bottom, 192, 272, 1024, 1440);
     }
 
     .slider__wrap {
-      max-width: calc(700px + (1000 - 700) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (max-width, 700, 1000, 1024, 1440);
     }
 
     .slick-slide {
-      width: calc(700px + (1000 - 700) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(525px + (750 - 525) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 700, 1000, 1024, 1440);
+      @include rubber (height, 525, 750, 1024, 1440);
     }
 
     .slick-dots button {
-      width: calc(12px + (16 - 12) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(12px + (16 - 12) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 12, 16, 1024, 1440);
+      @include rubber (height, 12, 16, 1024, 1440);
     }
 
     .shadow {
-      height: calc(525px + (750 - 525) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (height, 525, 750, 1024, 1440);
     }
 
     .slider__menu {
-      padding-left: calc(224px + (75 - 224) * ((100vw - 1024px) / (1440 - 1024)));
-      gap: calc(43px + (57 - 43) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (padding-left, 224, 75, 1024, 1440);
+      @include rubber (gap, 43, 57, 1024, 1440);
     }
   }
 
   .section__title {
-    font-size: calc(50px + (80 - 50) * ((100vw - 1024px) / (1440 - 1024)));
-    line-height: calc(75px + (90 - 75) * ((100vw - 1024px) / (1440 - 1024)));
-    padding-bottom: calc(20px + (25 - 20) * ((100vw - 1024px) / (1440 - 1024)));
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (font-size, 50, 80, 1024, 1440);
+    @include rubber (line-height, 75, 90, 1024, 1440);
+    @include rubber (padding-bottom, 20, 25, 1024, 1440);
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
   }
 
   .visiting {
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
 
     .cards {
+      @include rubber (grid-row-gap, 60, 72, 1024, 1440);
+      @include rubber (grid-column-gap, 108, 60, 1024, 1440);
       grid-template-columns: repeat(auto-fit, calc(330px + (440 - 330) * ((100vw - 1024px) / (1440 - 1024))));
-      grid-row-gap: calc(60px + (72 - 60) * ((100vw - 1024px) / (1440 - 1024)));
-      grid-column-gap: calc(108px + (60 - 108) * ((100vw - 1024px) / (1440 - 1024)));
     }
 
     .card__img {
@@ -79,30 +82,30 @@
     }
 
     .card__title {
-      font-size: calc(28px + (32 - 28) * ((100vw - 1024px) / (1440 - 1024)));
-      line-height: calc(31px + (35 - 31) * ((100vw - 1024px) / (1440 - 1024)));
-      letter-spacing: calc(3px + (5 - 3) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 28, 32, 1024, 1440);
+      @include rubber (line-height, 31, 35, 1024, 1440);
+      @include rubber (letter-spacing, 3, 5, 1024, 1440);
 
       &:after {
-        width: calc(150px + (300 - 150) * ((100vw - 1024px) / (1440 - 1024)));
+        @include rubber (width, 150, 300, 1024, 1440);
       }
     }
 
     .virtual {
-      font-size: calc(20px + (22 - 20) * ((100vw - 1024px) / (1440 - 1024)));
-      line-height: calc(23px + (26 - 23) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 20, 22, 1024, 1440);
+      @include rubber (line-height, 23, 26, 1024, 1440);
 
       &:nth-child(2n) {
-        font-size: calc(16px + (18 - 16) * ((100vw - 1024px) / (1440 - 1024)));
-        line-height: calc(19px + (21 - 19) * ((100vw - 1024px) / (1440 - 1024)));
+        @include rubber (font-size, 16, 18, 1024, 1440);
+        @include rubber (line-height, 19, 21, 1024, 1440);
       }
     }
   }
 
   .explore {
-    padding-top: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
-    padding-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (padding-top, 60, 75, 1024, 1440);
+    @include rubber (padding-bottom, 60, 75, 1024, 1440);
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
 
     .explore__wrap {
       padding-bottom: 700px;
@@ -113,7 +116,7 @@
     }
 
     .text {
-      font-size: calc(20px + (22 - 20) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 20, 22, 1024, 1440);
       margin-bottom: 0;
 
       &:nth-child(2) {
@@ -133,29 +136,29 @@
   }
 
   .video {
-    margin-bottom: calc(53px + (67 - 53) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (margin-bottom, 53, 67, 1024, 1440);
 
     .video__info {
-      margin-bottom: calc(36px + (75 - 36) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (margin-bottom, 36, 75, 1024, 1440);
     }
 
     .big__play {
-      width: calc(152px + (220 - 152) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(152px + (220 - 152) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 152, 220, 1024, 1440);
+      @include rubber (height, 152, 220, 1024, 1440);
       background-size: cover;
     }
 
     .video__controls {
-      height: calc(61px + (85 - 61) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (height, 61, 85, 1024, 1440);
       justify-content: space-evenly;
     }
 
     .progress__line {
-      width: calc(564px + (929 - 564) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 564, 929, 1024, 1440);
     }
 
     .volume__bar {
-      width: calc(143px + (155 - 143) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 143, 155, 1024, 1440);
     }
 
     input[type=range]::-webkit-slider-runnable-track {
@@ -168,75 +171,84 @@
     }
 
     .fullscreen {
-      width: calc(26px + (36 - 26) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(26px + (36 - 26) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 26, 36, 1024, 1440);
+      @include rubber (height, 26, 36, 1024, 1440);
       background-size: cover;
       margin-right: 7px;
     }
 
     .volume {
-      width: calc(26px + (36 - 26) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(20px + (30 - 20) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 26, 36, 1024, 1440);
+      @include rubber (height, 20, 30, 1024, 1440);
       background-size: cover;
     }
   }
 
   .gallery {
-    padding-top: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (padding-top, 60, 75, 1024, 1440);
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
 
     .gallery__container {
-      height: calc(1265px + (1958 - 1265) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (height, 1265, 1958, 1024, 1440);
     }
 
     .img__container {
-      height: calc(1996px + (2970 - 1996) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (height, 1996, 2970, 1024, 1440);
       column-gap: 32px;
     }
 
     .section__title {
-      margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (margin-bottom, 60, 75, 1024, 1440);
     }
   }
 
   .tickets {
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
   }
 
   .contacts {
-    margin-bottom: calc(62px + (72 - 62) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (margin-bottom, 62, 72, 1024, 1440);
 
     #map {
-      width: calc(694px + (960 - 694) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(454px + (620 - 454) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 694, 960, 1024, 1440);
+      @include rubber (height, 454, 620, 1024, 1440);
     }
 
     .title {
-      font-size: calc(24px + (28 - 24) * ((100vw - 1024px) / (1440 - 1024)));
-      line-height: calc(29px + (33 - 29) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 24, 28, 1024, 1440);
+      @include rubber (line-height, 29, 33, 1024, 1440);
       margin-bottom: 35px;
     }
 
     .contact {
-      font-size: calc(20px + (22 - 20) * ((100vw - 1024px) / (1440 - 1024)));
-      line-height: calc(23px + (26 - 23) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (font-size, 20, 22, 1024, 1440);
+      @include rubber (line-height, 23, 26, 1024, 1440);
       margin-bottom: 15px;
     }
   }
 
   .parallax {
-    margin-bottom: calc(60px + (75 - 60) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
   }
 
   .footer {
-    padding-top: calc(65px + (84 - 65) * ((100vw - 1024px) / (1440 - 1024)));
+    @include rubber (padding-top, 65, 84, 1024, 1440);
 
     .section__left {
-      gap: calc(40px + (140 - 40) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (gap, 40, 140, 1024, 1440);
     }
 
     .nav {
-      gap: calc(120px + (173 - 120) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (gap, 120, 173, 1024, 1440);
+    }
+  }
+
+  .booking__modal {
+    @include rubber (padding-top, 75, 91, 1024, 1440);
+    @include rubber (padding-bottom, 30, 91, 1024, 1440);
+
+    .close {
+      right: 20px;
     }
   }
 
@@ -257,8 +269,8 @@
     }
 
     .tickets__pic {
-      width: calc(700px + (720 - 700) * ((100vw - 1024px) / (1440 - 1024)));
-      height: calc(440px + (550 - 440) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 700, 720, 1024, 1440);
+      @include rubber (height, 440, 550, 1024, 1440);
     }
 
     .amount__wrap {
@@ -266,7 +278,7 @@
     }
 
     .counter__item {
-      width: calc(175px + (150 - 175) * ((100vw - 1024px) / (1440 - 1024)));
+      @include rubber (width, 175, 150, 1024, 1440);
     }
 
     .amount__subtitle {
@@ -311,16 +323,24 @@
       position: absolute;
       left: 0;
       top: 129px;
-      padding: 35px 120px 287px 55px;
+      padding: 35px 120px 287px 34px;
       flex-direction: column;
       gap: 25px;
       background-color: $color-dark;
       align-items: flex-start;
       z-index: 1000;
-      opacity: 0;
+      transition: 0.3s ease;
+      transform: translateX(-300%);
     }
 
+    .list__active {
+      transform: translateX(0);
+    }
+
+
     .item__link {
+      display: block;
+      width: 122px;
       position: relative;
       @include roboto (20px, 300, 23px);
 
@@ -333,10 +353,6 @@
         background-image: url('./common/img/svg/arrow-header-nav.svg');
         width: 12px;
         height: 12px;
-      }
-
-      &:nth-child(3) {
-        padding-right: 46px;
       }
     }
 

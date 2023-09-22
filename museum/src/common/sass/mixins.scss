@@ -11,3 +11,12 @@
   font-weight: $fw;
   line-height: $lh;
 }
+
+@mixin rubber($param,
+  $minSize,
+  $maxSize,
+  $minWindowWidth,
+  $maxWindowWidth,
+) {
+  #{$param}: calc((#{$minSize + 'px'}) + ($maxSize - $minSize) * (100vw - (#{$minWindowWidth + 'px'})) / ($maxWindowWidth - $minWindowWidth));
+}
