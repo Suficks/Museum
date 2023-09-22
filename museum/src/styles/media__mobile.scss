@@ -7,7 +7,7 @@
 
   .welcome {
     .welcome__wrap {
-      padding-bottom: 649px;
+      padding-bottom: 648px;
     }
 
     .welcome__info {
@@ -46,5 +46,56 @@
     .shadow {
       display: none;
     }
+  }
+
+  .visiting {
+    .card__img {
+      margin-bottom: 22px;
+    }
+  }
+
+  .explore {
+    .explore__info {
+      display: none;
+    }
+
+    .explore__wrap {
+      padding-bottom: 705px;
+    }
+
+    .slider__change {
+      width: 728px;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      height: 705px;
+    }
+
+    .slider__imgs {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .slider__before,
+    .slider__after {
+      background-size: 728px 705px;
+    }
+
+    .drag__line {
+      height: 705px;
+
+      &:before {
+        height: 350px;
+      }
+
+      &:after {
+        height: 320px;
+      }
+    }
+
+    .circle {
+      top: 52%;
+    }
+
   }
 }

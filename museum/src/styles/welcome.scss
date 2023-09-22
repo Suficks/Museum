@@ -77,6 +77,11 @@
     background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0.0) 30.73%);
   }
 
+  .slider__pic {
+    max-width: 1000px;
+    height: 750px;
+  }
+
   .slick-list {
     overflow: hidden;
   }
@@ -142,7 +147,7 @@
 
   .slider__menu {
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     right: 0;
     display: flex;
     justify-content: space-between;

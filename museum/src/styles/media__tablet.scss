@@ -48,6 +48,8 @@
   }
 
   .welcome {
+    @include rubber (margin-bottom, 38, 60, 768, 1024);
+
     .welcome__info {
       @include rubber (padding-top, 0, 50, 768, 1024);
     }
@@ -65,6 +67,59 @@
     .slick-dots button {
       @include rubber (width, 12, 12, 768, 1024);
       @include rubber (height, 12, 12, 768, 1024);
+    }
+
+    .slider__menu {
+      @include rubber (padding-left, 150, 224, 768, 1024);
+      @include rubber (padding-right, 50, 75, 768, 1024);
+    }
+  }
+
+  .section__title {
+    @include rubber (font-size, 40, 50, 768, 1024);
+    @include rubber (line-height, 60, 75, 768, 1024);
+    @include rubber (margin-bottom, 40, 60, 768, 1024);
+    @include rubber (padding-bottom, 22, 20, 768, 1024);
+  }
+
+  .visiting {
+    @include rubber (margin-bottom, 80, 60, 768, 1024);
+
+    .cards {
+      @include rubber (grid-row-gap, 40, 60, 768, 1024);
+      @include rubber (grid-column-gap, 56, 108, 768, 1024);
+      grid-template-columns: repeat(auto-fit, calc(280px + (330 - 280) * ((100vw - 768px) / (1024 - 768))));
+    }
+
+    .card__title {
+      @include rubber (font-size, 22, 28, 768, 1024);
+      @include rubber (line-height, 24, 31, 768, 1024);
+      @include rubber (letter-spacing, 3, 3, 768, 1024);
+
+      &:after {
+        @include rubber (width, 150, 150, 768, 1024);
+      }
+    }
+
+    .virtual {
+      @include rubber (font-size, 18, 20, 768, 1024);
+      @include rubber (line-height, 21, 23, 768, 1024);
+
+      &:nth-child(2n) {
+        @include rubber (font-size, 16, 18, 768, 1024);
+        @include rubber (line-height, 19, 21, 768, 1024);
+      }
+    }
+  }
+
+  .explore {
+    @include rubber (padding-top, 40, 60, 768, 1024);
+    @include rubber (padding-bottom, 55, 75, 1024, 1440);
+    @include rubber (margin-bottom, 60, 75, 1024, 1440);
+
+    .slider__wrap {
+      @include rubber (max-width, 728, 720, 768, 1024);
+      @include rubber (max-height, 705, 700, 768, 1024);
     }
   }
 

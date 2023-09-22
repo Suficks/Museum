@@ -46,6 +46,10 @@
       @include rubber (height, 525, 750, 1024, 1440);
     }
 
+    .slider__pic {
+      height: 100%;
+    }
+
     .slick-dots button {
       @include rubber (width, 12, 16, 1024, 1440);
       @include rubber (height, 12, 16, 1024, 1440);
@@ -106,6 +110,12 @@
     @include rubber (padding-top, 60, 75, 1024, 1440);
     @include rubber (padding-bottom, 60, 75, 1024, 1440);
     @include rubber (margin-bottom, 60, 75, 1024, 1440);
+
+    .section__title {
+      &:after {
+        max-width: 100%;
+      }
+    }
 
     .explore__wrap {
       padding-bottom: 700px;
