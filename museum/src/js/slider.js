@@ -27,6 +27,15 @@ $('.iframe__slider').slick({
   prevArrow: $('.video__prev'),
   nextArrow: $('.video__next'),
   variableWidth: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 });
 
 $('.video__slider').slick({
