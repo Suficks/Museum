@@ -1,3 +1,103 @@
+@media screen and (max-width: 980px) {
+  .booking__modal {
+    top: 0;
+    max-width: 590px;
+    height: 100%;
+    overflow: scroll;
+    padding: 82px 28px 40px 31px;
+    margin-bottom: 50px;
+
+    .modal__wrap {
+      flex-direction: column;
+      gap: 51px;
+    }
+
+    .subtitle {
+      padding-bottom: 14px;
+      margin-bottom: 39px;
+
+      &:after {
+        max-width: 530px;
+      }
+    }
+
+    .input__container {
+      justify-content: inherit;
+      gap: 28px;
+    }
+
+    .date,
+    .time {
+      max-width: 251px;
+      background: url('./common/img/svg/arrow-date-time.svg') no-repeat 94.5% 50%;
+    }
+
+    .input {
+      width: 530px;
+      padding-left: 43px;
+    }
+
+    .logo {
+      left: 2.5%;
+    }
+
+    .time__logo {
+      left: 55%;
+    }
+
+    .select {
+      background: url(http://localhost:3000/assets/arrow-date-time.svg) no-repeat 97.5% 50%;
+    }
+
+    .ticket__form {
+      box-sizing: border-box;
+      max-width: 530px;
+    }
+
+    .entry__title {
+      &:after {
+        max-width: 500px;
+      }
+    }
+
+    .minus {
+      right: 14%;
+    }
+
+    .right__container {
+      padding: 25px 14px;
+    }
+
+    .ticket__pic {
+      right: 14px;
+    }
+
+    .senior {
+      &:after {
+        max-width: 500px;
+      }
+    }
+
+    .card {
+      margin-bottom: 54px;
+    }
+
+    .total__wrap {
+      margin-bottom: 15px;
+    }
+
+    .card__reverse {
+      right: 14px;
+    }
+
+    .close {
+      right: 28px;
+    }
+  }
+
+
+}
+
 @media screen and (max-width: 900px) {
   .tickets {
     .tickets__container {
