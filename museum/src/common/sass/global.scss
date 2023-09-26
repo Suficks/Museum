@@ -53,6 +53,37 @@ a {
   }
 }
 
+.socials {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social__item {
+  align-self: flex-end;
+  width: 48px;
+  height: 48px;
+}
+
+.social__link {
+  display: block;
+  height: 100%;
+  border: 1px solid #666;
+  border-radius: 50%;
+  transition: 0.3s ease;
+
+  &:hover {
+    filter: invert(63%) sepia(31%) saturate(404%) hue-rotate(356deg) brightness(80%) contrast(81%);
+  }
+}
+
+.social__pic {
+  margin: 11px;
+  line-height: 0;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -71,7 +102,7 @@ a {
 
 .overlay__active {
   opacity: 0.7;
-  z-index: 1003;
+  z-index: 1001;
   pointer-events: all;
 }
 

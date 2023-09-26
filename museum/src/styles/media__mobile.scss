@@ -3,7 +3,7 @@
     top: 0;
     max-width: 590px;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 82px 28px 40px 31px;
     margin-bottom: 50px;
 
@@ -108,17 +108,25 @@
 
 @media screen and (max-width: 768px) {
   .header {
+    .logo {
+      position: relative;
+      z-index: 4;
+    }
+
     .burger__menu {
       top: 42px;
     }
 
     .list {
       position: fixed;
-      top: 0;
+      top: 115px;
       left: 0;
+      bottom: 0;
+      right: 0;
       width: 100%;
       height: 100%;
-      padding: 0;
+      padding: 26px 0 0 54px;
+      margin-bottom: 35px;
     }
   }
 

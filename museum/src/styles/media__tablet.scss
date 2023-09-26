@@ -16,15 +16,13 @@
       gap: 25px;
       background-color: $color-dark;
       align-items: flex-start;
-      z-index: 1001;
-      transition: 0.3s ease;
+      z-index: 3;
       transform: translateX(-300%);
     }
 
     .list__active {
       transform: translateX(0);
     }
-
 
     .item__link {
       display: block;

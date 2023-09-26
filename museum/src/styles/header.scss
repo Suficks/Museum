@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   color: #FFFFFF;
   background-color: $color-dark;
 
@@ -20,6 +21,7 @@
     margin: 0;
 
     list-style: none;
+    transition: 0.3s ease;
   }
 
   .item__link {
@@ -72,6 +74,8 @@
   }
 
   .burger__close {
+    z-index: 3;
+
     .line__first {
       top: 50%;
       transform: rotate(45deg);
@@ -85,5 +89,41 @@
       top: 50%;
       transform: rotate(-45deg);
     }
+  }
+
+  .nav__mobile {
+    position: absolute;
+    top: 398%;
+    left: 4.5%;
+    max-width: 658px;
+    width: 100%;
+    z-index: 3;
+    transition: 0.3s ease;
+    transform: translateX(-300%);
+  }
+
+  .nav__mobile__pic {
+    margin-bottom: 28px;
+
+    &:first-child {
+      margin-bottom: 18px;
+    }
+
+    &:nth-child(2) {
+      margin-right: 16px;
+    }
+  }
+
+  hr {
+    width: calc(100% - 2px);
+    margin: 0 0 33px;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .nav__mobile__active {
+    transform: translateX(0);
   }
 }
