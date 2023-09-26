@@ -4,7 +4,7 @@
     max-width: 590px;
     height: 100%;
     overflow-y: scroll;
-    padding: 82px 28px 40px 31px;
+    padding: 82px 18px 40px 31px;
     margin-bottom: 50px;
 
     .modal__wrap {
@@ -28,7 +28,7 @@
 
     .date,
     .time {
-      max-width: 251px;
+      max-width: 250px;
       background: url('./common/img/svg/arrow-date-time.svg') no-repeat 94.5% 50%;
     }
 
@@ -91,11 +91,9 @@
     }
 
     .close {
-      right: 28px;
+      right: 18px;
     }
   }
-
-
 }
 
 @media screen and (max-width: 900px) {

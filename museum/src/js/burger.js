@@ -2,6 +2,7 @@ const burger = document.querySelector('.burger__menu');
 const headerNav = document.querySelector('.list');
 const welcomeText = document.querySelector('.welcome__info');
 const navMobile = document.querySelector('.nav__mobile');
+const burgerMenuItems = document.querySelectorAll('.burger__item__link');
 
 const burgerMenuMobileActive = () => {
   if (window.innerWidth <= 768 && headerNav.classList.contains('list__active')) {
@@ -22,3 +23,6 @@ const burgerMenuActive = () => {
 
 burger.addEventListener('click', burgerMenuActive);
 window.addEventListener('resize', burgerMenuMobileActive);
+burgerMenuItems.forEach((item) => {
+  item.addEventListener('click', burgerMenuActive);
+});
