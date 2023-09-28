@@ -369,6 +369,7 @@
 
     .img__container {
       @include rubber (height, 1705, 3224, 420, 768);
+      gap: 24px;
     }
   }
 
@@ -479,6 +480,14 @@
 }
 
 @media screen and (max-width: 680px) {
+  .welcome {
+    .first {
+      &:after {
+        left: 140%
+      }
+    }
+  }
+
   .tickets {
     .tickets__container {
       grid-template-columns: none;
@@ -495,6 +504,93 @@
       &:nth-child(2) {
         display: none;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .booking__modal {
+    padding-right: 20px;
+
+    .modal__wrap {
+      gap: 49px;
+    }
+
+    .title {
+      @include rubber (font-size, 32, 50, 420, 570);
+      @include rubber (line-height, 35, 55, 420, 570);
+    }
+
+    .input__container {
+      display: block;
+    }
+
+    .date,
+    .time {
+      max-width: 100%;
+      background: url('./common/img/svg/arrow-date-time.svg') no-repeat 94.5% 50%;
+    }
+
+    .date {
+      margin-bottom: 20px;
+    }
+
+    .date__logo {
+      top: 21%;
+    }
+
+    .time__logo {
+      top: 80%;
+    }
+
+    .input {
+      width: 100%;
+    }
+
+    .logo {
+      left: 15px;
+    }
+
+    .select {
+      background: url(http://localhost:3000/assets/arrow-date-time.svg) no-repeat 94.5% 50%;
+    }
+
+    .minus {
+      right: 70px;
+    }
+
+    .ticket__pic {
+      @include rubber (width, 120, 150, 420, 570);
+    }
+
+    .senior {
+      padding-bottom: 12px;
+    }
+
+    .label__name {
+      font-size: 11px;
+      line-height: 13px;
+    }
+
+    .card {
+      margin-bottom: 272px;
+    }
+
+    .card__reverse {
+      width: 330px;
+      bottom: 12.5%;
+      padding-left: 0;
+    }
+
+    .cvc {
+      font-size: 13px;
+      line-height: 15px;
+    }
+
+    .text {
+      font-size: 9px;
+      line-height: 11px;
+      margin: 0 14px;
     }
   }
 }

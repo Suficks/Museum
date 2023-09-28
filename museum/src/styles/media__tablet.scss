@@ -107,8 +107,8 @@
       @include rubber (line-height, 21, 23, 768, 1024);
 
       &:nth-child(2n) {
-        @include rubber (font-size, 16, 18, 768, 1024);
-        @include rubber (line-height, 19, 21, 768, 1024);
+        font-size: 16px;
+        line-height: 19px;
       }
     }
   }
@@ -158,11 +158,7 @@
 
     .img__container {
       @include rubber (height, 3224, 1996, 768, 1024);
-      column-gap: 24px;
-    }
-
-    .gallery__img {
-      max-width: calc(50% - 12px);
+      @include rubber (column-gap, 24, 36, 768, 1024);
     }
 
     .section__title {
@@ -232,17 +228,12 @@
     #map {
       @include rubber (width, 728, 694, 768, 1024);
       @include rubber (height, 476, 454, 768, 1024);
-      align-self: center;
     }
 
     .title {
       @include rubber (font-size, 20, 24, 768, 1024);
       @include rubber (line-height, 25, 29, 768, 1024);
-      margin-bottom: 40px;
-    }
-
-    .contacts__wrap {
-      flex-direction: column;
+      margin-bottom: 33px;
     }
 
     .contact {
@@ -260,13 +251,11 @@
 
     .footer__wrap {
       @include rubber (padding-bottom, 82, 103, 768, 1024);
-      flex-direction: column;
-      gap: 49px;
     }
 
     .logo {
       position: relative;
-      bottom: 10px;
+      bottom: 5px;
     }
 
     .section__left {
@@ -282,17 +271,40 @@
       @include rubber (line-height, 21, 26, 768, 1024);
     }
 
-    .socials {
-      @include rubber (margin-left, 298, 630, 768, 1024);
-    }
-
     .line {
-      bottom: 112px;
+      bottom: 122px;
     }
   }
 }
 
 @media screen and (max-width: 980px) {
+  .gallery {
+    .gallery__img {
+      max-width: calc(50% - 12px);
+    }
+  }
+
+  .contacts {
+    .contacts__wrap {
+      flex-direction: column;
+    }
+
+    #map {
+      align-self: center;
+    }
+  }
+
+  .footer {
+    .footer__wrap {
+      flex-direction: column;
+      gap: 49px;
+    }
+
+    .socials {
+      @include rubber (margin-left, 298, 630, 768, 1024);
+    }
+  }
+
   .booking__modal {
     top: 0;
     max-width: 590px;
