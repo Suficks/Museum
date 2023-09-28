@@ -1,101 +1,3 @@
-@media screen and (max-width: 980px) {
-  .booking__modal {
-    top: 0;
-    max-width: 590px;
-    height: 100%;
-    overflow-y: scroll;
-    padding: 82px 18px 40px 31px;
-    margin-bottom: 50px;
-
-    .modal__wrap {
-      flex-direction: column;
-      gap: 51px;
-    }
-
-    .subtitle {
-      padding-bottom: 14px;
-      margin-bottom: 39px;
-
-      &:after {
-        max-width: 530px;
-      }
-    }
-
-    .input__container {
-      justify-content: inherit;
-      gap: 28px;
-    }
-
-    .date,
-    .time {
-      max-width: 250px;
-      background: url('./common/img/svg/arrow-date-time.svg') no-repeat 94.5% 50%;
-    }
-
-    .input {
-      width: 530px;
-      padding-left: 43px;
-    }
-
-    .logo {
-      left: 2.5%;
-    }
-
-    .time__logo {
-      left: 55%;
-    }
-
-    .select {
-      background: url(http://localhost:3000/assets/arrow-date-time.svg) no-repeat 97.5% 50%;
-    }
-
-    .ticket__form {
-      box-sizing: border-box;
-      max-width: 530px;
-    }
-
-    .entry__title {
-      &:after {
-        max-width: 500px;
-      }
-    }
-
-    .minus {
-      right: 14%;
-    }
-
-    .right__container {
-      padding: 25px 14px;
-    }
-
-    .ticket__pic {
-      right: 14px;
-    }
-
-    .senior {
-      &:after {
-        max-width: 500px;
-      }
-    }
-
-    .card {
-      margin-bottom: 54px;
-    }
-
-    .total__wrap {
-      margin-bottom: 15px;
-    }
-
-    .card__reverse {
-      right: 14px;
-    }
-
-    .close {
-      right: 18px;
-    }
-  }
-}
-
 @media screen and (max-width: 900px) {
   .tickets {
     .tickets__container {
@@ -105,19 +7,30 @@
 }
 
 @media screen and (max-width: 768px) {
+  .logo__pic {
+    @include rubber (width, 29, 49, 420, 768);
+  }
+
+  .logo__title {
+    @include rubber (font-size, 16, 28, 420, 768);
+    @include rubber (line-height, 18, 41, 420, 768);
+  }
+
   .header {
-    .logo {
-      position: relative;
-      z-index: 4;
+    .header__wrap {
+      @include rubber (padding-top, 37, 45, 420, 768);
+      @include rubber (padding-bottom, 40, 30, 420, 768);
     }
 
+
     .burger__menu {
-      top: 42px;
+      @include rubber (top, 35, 54, 420, 768);
+      @include rubber (right, 20, 20, 420, 768);
     }
 
     .list {
       position: fixed;
-      top: 115px;
+      @include rubber (top, 88, 115, 420, 768);
       left: 0;
       bottom: 0;
       right: 0;
@@ -126,11 +39,42 @@
       padding: 26px 0 0 54px;
       margin-bottom: 35px;
     }
+
+    .nav__mobile {
+      @include rubber (top, 412, 440, 420, 768);
+      @include rubber (max-width, 311, 658, 420, 768);
+      @include rubber (padding-left, 17, 0, 420, 768);
+    }
+
+    .mobile__container {
+      @include rubber (margin-bottom, 20, 35, 420, 768);
+      @include rubber (gap, 13, 20, 420, 768);
+    }
+
+    .nav__mobile__pic {
+      @include rubber (width, 95, 319, 420, 768);
+      @include rubber (height, 95, 161, 420, 768);
+
+      &:first-child {
+        @include rubber (width, 95, 658, 420, 768);
+        @include rubber (height, 95, 194, 420, 768);
+      }
+    }
+
+    hr {
+      @include rubber (margin-bottom, 20, 33, 420, 768);
+    }
+
+    .socials {
+      @include rubber (gap, 5, 25, 420, 768);
+    }
   }
 
   .welcome {
+    @include rubber (margin-bottom, 40, 40, 420, 768);
+
     .welcome__wrap {
-      padding-bottom: 648px;
+      @include rubber (padding-bottom, 365, 648, 420, 768);
     }
 
     .welcome__info {
@@ -138,32 +82,76 @@
       text-align: center;
     }
 
+    .welcome__title {
+      @include rubber (font-size, 28, 40, 420, 768);
+      @include rubber (line-height, 40, 60, 420, 768);
+    }
+
+    .subtitle {
+      @include rubber (font-size, 16, 20, 420, 768);
+      @include rubber (line-height, 19, 20, 420, 768);
+    }
+
     .button__link {
       display: none;
     }
 
     .slider__wrap {
-      top: 24.5%;
+      @include rubber (top, 176, 216, 420, 768);
       left: 0;
       max-width: 728px;
       width: 100%;
     }
 
     .slick-slide {
-      width: 728px;
-      height: 546px;
+      @include rubber (width, 380, 728, 420, 768);
+      @include rubber (height, 285, 546, 420, 768);
     }
 
     .slider__pic {
-      height: 546px;
+      @include rubber (height, 285, 546, 420, 768);
     }
 
     .slider__menu {
       max-width: 100%;
       width: 100%;
       justify-content: center;
-      padding: 31px 0;
-      gap: 45px;
+      padding: 0;
+      @include rubber (padding-top, 20, 31, 420, 768);
+      @include rubber (padding-bottom, 21, 31, 420, 768);
+      @include rubber (gap, 25, 45, 420, 768);
+    }
+
+    .counter {
+      @include rubber (gap, 15, 25, 420, 768);
+    }
+
+    .slider__num {
+      @include rubber (font-size, 16, 20, 420, 768);
+    }
+
+    .first {
+      &:after {
+        left: 156%
+      }
+    }
+
+    .slick-dots {
+      @include rubber (gap, 10, 25, 420, 768);
+    }
+
+    .slick-dots button {
+      @include rubber (width, 7, 12, 420, 768);
+      @include rubber (height, 7, 12, 420, 768);
+      padding: 0;
+    }
+
+    .slick-arrow {
+      @include rubber (font-size, 20, 30, 420, 768);
+    }
+
+    .prev {
+      @include rubber (margin-right, 10, 20, 420, 768);
     }
 
     .shadow {
@@ -171,16 +159,51 @@
     }
   }
 
+  .section__title {
+    @include rubber (font-size, 28, 40, 420, 768);
+    @include rubber (line-height, 40, 60, 420, 768);
+    @include rubber (margin-bottom, 40, 40, 420, 768);
+    @include rubber (padding-bottom, 20, 22, 420, 768);
+  }
+
   .visiting {
+    @include rubber (margin-bottom, 40, 80, 420, 768);
+
+    .cards {
+      @include rubber (grid-row-gap, 41, 38, 420, 768);
+      grid-template-columns: repeat(auto-fit, calc(280px + (280 - 280) * ((100vw - 420px) / (768 - 420))));
+    }
+
     .card__img {
-      margin-bottom: 22px;
+      @include rubber (margin-bottom, 22, 22, 420, 768);
+      height: 180px;
+    }
+
+    .card__title {
+      @include rubber (font-size, 18, 22, 420, 768);
+      @include rubber (line-height, 20, 24, 420, 768);
+      @include rubber (letter-spacing, 5, 3, 420, 768);
+    }
+
+    .virtual {
+      @include rubber (font-size, 16, 18, 420, 768);
+      @include rubber (line-height, 19, 21, 420, 768);
+
+      &:nth-child(2n) {
+        @include rubber (font-size, 16, 16, 420, 768);
+        @include rubber (line-height, 19, 21, 420, 768);
+      }
     }
   }
 
   .explore {
+    @include rubber (padding-top, 42, 40, 420, 768);
+    @include rubber (padding-bottom, 40, 40, 420, 768);
+    @include rubber (margin-bottom, 37, 40, 420, 768);
+
     .slider__wrap {
-      max-width: 728px;
-      max-height: 705px;
+      @include rubber (max-width, 380, 728, 420, 768);
+      @include rubber (max-height, 368, 705, 420, 768);
     }
 
     .explore__info {
@@ -188,15 +211,15 @@
     }
 
     .explore__wrap {
-      padding-bottom: 705px;
+      @include rubber (padding-bottom, 370, 705, 420, 768);
     }
 
     .slider__change {
-      width: 728px;
+      @include rubber (width, 380, 728, 420, 768);
     }
 
     input[type=range]::-webkit-slider-thumb {
-      height: 705px;
+      @include rubber (height, 368, 705, 420, 768);
     }
 
     .slider__imgs {
@@ -206,102 +229,347 @@
 
     .slider__before,
     .slider__after {
-      background-size: 728px 705px;
+      background-size: calc(380px + (728 - 380) * ((100vw - 420px) / (768 - 420))) calc(368px + (705 - 368) * ((100vw - 420px) / (768 - 420)));
     }
 
     .drag__line {
-      height: 705px;
+      @include rubber (width, 2, 5, 420, 768);
+      @include rubber (height, 368, 705, 420, 768);
 
       &:before {
-        height: 350px;
+        @include rubber (height, 180, 345, 420, 768);
       }
 
       &:after {
-        height: 320px;
+        @include rubber (height, 168, 325, 420, 768);
       }
     }
 
     .circle {
-      top: 52%;
+      @include rubber (width, 18, 30, 420, 768);
+      @include rubber (height, 18, 30, 420, 768);
+      top: 51.5%;
+      border: calc(2px + (5 - 2) * ((100vw - 420px) / (768 - 420))) solid #fff;
     }
   }
 
   .video {
+    @include rubber (margin-bottom, 30, 75, 420, 768);
+
+    .video__info {
+      @include rubber (margin-bottom, 19, 20, 420, 768);
+    }
+
+    .video__items__wrapper {
+      @include rubber (margin-bottom, 40, 20, 420, 768);
+    }
+
     .video__slider .slick-track {
-      height: 386px;
+      @include rubber (height, 225, 386, 420, 768);
+    }
+
+    .video__item {
+      @include rubber (height, 172, 329, 420, 768);
     }
 
     .video__controls {
       justify-content: space-around;
-      height: 64px;
+      @include rubber (height, 60, 64, 420, 768);
       bottom: -5px;
     }
 
+    .big__play {
+      @include rubber (width, 50, 80, 420, 768);
+      @include rubber (height, 50, 80, 420, 768);
+    }
+
     .play {
-      margin-left: 10px;
+      @include rubber (width, 14, 23, 420, 768);
+      @include rubber (height, 18, 29, 420, 768);
+      @include rubber (margin-left, 3, 10, 420, 768);
+      background-size: cover;
     }
 
     .progress__line {
       position: absolute;
       align-self: flex-start;
       width: 100%;
+      @include rubber (height, 4, 5, 420, 768);
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      @include rubber (height, 10, 13, 420, 768);
+      @include rubber (width, 10, 13, 420, 768);
     }
 
     .volume__bar {
-      width: 488px;
+      @include rubber (width, 200, 488, 420, 768);
+      @include rubber (height, 4, 5, 420, 768);
       max-width: 100%;
     }
 
     .volume {
-      width: 27px;
-      height: 21px;
+      @include rubber (width, 18, 27, 420, 768);
+      @include rubber (height, 14, 21, 420, 768);
     }
 
     .fullscreen {
-      width: 27px;
-      height: 27px;
+      @include rubber (width, 18, 27, 420, 768);
+      @include rubber (height, 18, 27, 420, 768);
+    }
+
+    .iframe {
+      @include rubber (height, 101, 199, 420, 768);
+      @include rubber (width, 180, 354, 420, 768)
+    }
+
+    .iframe__slider .slick-slide {
+      @include rubber (width, 180, 354, 420, 768)
     }
 
     .iframe__slider {
-      margin-bottom: 7px;
+      @include rubber (margin-bottom, 28, 7, 420, 768);
+    }
+
+    .iframe__slider .slick-track {
+      gap: 20px;
+    }
+
+    .slider__buttons {
+      @include rubber (gap, 9, 7, 420, 768);
     }
 
     .slick-dots button {
-      height: 10px;
-      width: 10px;
+      @include rubber (width, 8, 10, 420, 768);
+      @include rubber (height, 8, 10, 420, 768);
       padding: 0;
     }
 
     .slick-dots li {
-      width: 31px;
+      @include rubber (width, 28, 31, 420, 768);
     }
 
     .video__prev,
     .video__next {
-      font-size: 22px;
+      @include rubber (font-size, 17, 22, 420, 768);
+    }
+  }
+
+  .gallery {
+    padding-top: 41px;
+    margin-bottom: 40px;
+
+    .section__title {
+      @include rubber (margin-bottom, 40, 40, 420, 768);
+    }
+
+    .gallery__container {
+      @include rubber (height, 638, 1080, 420, 768);
+    }
+
+    .img__container {
+      @include rubber (height, 1705, 3224, 420, 768);
+    }
+  }
+
+  .tickets {
+    @include rubber (margin-bottom, 40, 40, 420, 768);
+
+    .tickets__pic {
+      @include rubber (width, 380, 444, 420, 768);
+      @include rubber (height, 160, 340, 420, 768);
+      @include rubber (margin-bottom, 42, 0, 420, 768);
+    }
+
+    .amount__subtitle {
+      text-align: start;
+      @include rubber (margin-bottom, 20, 39, 420, 768);
+      @include rubber (font-size, 16, 28, 420, 768);
+      @include rubber (line-height, 19, 32, 420, 768);
+    }
+
+    .amount__name {
+      @include rubber (font-size, 16, 22, 420, 768);
+      @include rubber (line-height, 19, 26, 420, 768);
+      @include rubber (margin-bottom, 15, 10, 420, 768);
+    }
+
+    .senior__name {
+      @include rubber (margin-top, 20, 25, 420, 768);
+    }
+
+    .second {
+      @include rubber (margin-bottom, 40, 37, 420, 768);
+    }
+
+    .total {
+      @include rubber (font-size, 16, 28, 420, 768);
+      @include rubber (line-height, 19, 33, 420, 768);
+      margin-bottom: 40px;
+    }
+
+    .buy {
+      @include rubber (font-size, 16, 22, 420, 768);
+      @include rubber (line-height, 18, 22, 420, 768);
+      padding: 15px 37px;
+    }
+  }
+
+  .parallax {
+    height: 300px;
+    margin-bottom: 40px;
+  }
+
+  .contacts {
+    @include rubber (margin-bottom, 40, 66, 420, 768);
+
+    #map {
+      @include rubber (width, 380, 728, 420, 768);
+      @include rubber (height, 248, 476, 420, 768);
+    }
+
+    .title {
+      @include rubber (font-size, 16, 20, 420, 768);
+      @include rubber (line-height, 21, 25, 420, 768);
+      margin-bottom: 37px
+    }
+
+    .contact {
+      @include rubber (font-size, 16, 18, 420, 768);
+      @include rubber (line-height, 19, 21, 420, 768);
+    }
+  }
+
+  .footer {
+    @include rubber (padding-top, 98, 58, 420, 768);
+    @include rubber (padding-bottom, 42, 52, 420, 768);
+
+    .footer__wrap {
+      @include rubber (padding-bottom, 80, 82, 420, 768);
+      @include rubber (gap, 0, 49, 420, 768);
+    }
+
+    .logo {
+      @include rubber (bottom, 55, 10, 420, 768);
+    }
+
+    .section__left {
+      @include rubber (gap, 15, 99, 420, 768);
+    }
+
+    .nav {
+      @include rubber (gap, 30, 180, 420, 768);
+    }
+
+    .socials {
+      @include rubber (gap, 5, 25, 420, 768);
+      @include rubber (margin-left, 0, 207, 420, 768);
+      justify-content: center;
+    }
+
+    .item__link {
+      @include rubber (font-size, 16, 18, 420, 768);
+      line-height: 21px;
+    }
+
+    .footer__item {
+      @include rubber (font-size, 16, 22, 420, 768);
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .tickets {
+    .tickets__container {
+      grid-template-columns: none;
+      justify-content: center;
+    }
+
+    .main__container {
+      justify-content: center;
+    }
+  }
+
+  .footer {
+    .footer__item {
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .header {
+    .nav__mobile__pic {
+      &:nth-child(2) {
+        order: 1;
+      }
+
+      &:first-child {
+        order: 2;
+      }
+
+      &:nth-child(3) {
+        order: 3;
+      }
+    }
+  }
+
+  .video {
+    .big__play {
+      top: 38%;
     }
   }
 
   .tickets {
     .amount__subtitle {
-      text-align: start;
-      margin-bottom: 39px;
-    }
-
-    .senior__name {
-      margin-top: 25px;
-    }
-
-    .second {
-      margin-bottom: 37px;
+      text-align: center;
     }
 
     .total {
-      margin-bottom: 40px;
+      text-align: center;
     }
 
     .buy {
-      padding: 13px 37px;
+      padding: 16px 48px;
+    }
+  }
+
+  .contacts {
+    .title {
+      margin-bottom: 37px;
+    }
+  }
+
+  .footer {
+    .section__left {
+      height: 0;
+    }
+
+    .logo {
+      bottom: 55px;
+      gap: 20px;
+    }
+
+    .item {
+      margin-bottom: 30px;
+
+      &:nth-child(even) {
+        margin-bottom: 39px;
+      }
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .nav1 {
+      display: flex;
+    }
+
+    .line {
+      bottom: 102px;
     }
   }
 }
