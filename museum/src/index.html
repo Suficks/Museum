@@ -205,7 +205,7 @@
     <!-- explore -->
 
     <!-- video -->
-    <section class="video" id="video">
+    <!-- <section class="video" id="video">
       <div class="wrapper">
         <div class="video__info">
           <h2 class="section__title">Video journey</h2>
@@ -259,7 +259,7 @@
           <button class="video__next">»</button>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- video -->
 
     <!-- gallery -->
@@ -461,15 +461,18 @@
         </div>
         <div class="input__container">
           <img src="./common/img/svg/name.svg" alt="name" class="logo">
-          <input class="input name" type="text" placeholder="Name">
+          <input class="input name" type="text" placeholder="Name" data-input="name">
+          <div class="error"></div>
         </div>
         <div class="input__container">
           <img src="./common/img/svg/email.svg" alt="email" class="logo">
-          <input class="input email" type="email" placeholder="E-mail">
+          <input class="input email" type="email" placeholder="E-mail" data-input="email">
+          <div class="error"></div>
         </div>
         <div class="input__container">
           <img src="./common/img/svg/tel.svg" alt="tel" class="logo">
-          <input class="input tel" type="tel" placeholder="Phone">
+          <input class="input tel" type="text" placeholder="Phone" data-input="tel">
+          <div class="error"></div>
         </div>
         <div class="input__container">
           <img src="./common/img/svg/select.svg" alt="select" class="logo">
@@ -572,6 +575,8 @@
   <!-- overlay -->
   <div class="overlay"></div>
   <!-- overlay -->
+
+  <script src="https://unpkg.com/imask"></script>
 </body>
 
 </html>

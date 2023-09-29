@@ -1,10 +1,10 @@
 .booking__modal {
   position: fixed;
   top: 5%;
-  left: 50%;
-  padding: 91px 10px 0;
+  // left: 50%;
+  padding: 91px 10px;
   box-sizing: border-box;
-  transform: translateX(-400%);
+  // transform: translateX(-400%);
   z-index: 1002;
 
   max-width: 1440px;
@@ -70,6 +70,11 @@
     outline: none;
     border: 1px solid $color-dark;
     box-sizing: border-box;
+    @include roboto (18px, 400, 20px);
+  }
+
+  .input__invalid {
+    border: 1px solid red;
   }
 
   .date,
@@ -449,6 +454,13 @@
   &::-webkit-scrollbar-thumb {
     background: #BCBCBC;
     border-radius: 20px;
+  }
+
+  .error {
+    position: absolute;
+    bottom: -15px;
+    @include forum (13px, 400, 13px);
+    color: red;
   }
 }
 
