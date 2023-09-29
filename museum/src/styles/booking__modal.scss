@@ -1,10 +1,10 @@
 .booking__modal {
   position: fixed;
   top: 5%;
-  // left: 50%;
+  left: 50%;
   padding: 91px 10px;
   box-sizing: border-box;
-  // transform: translateX(-400%);
+  transform: translateX(-400%);
   z-index: 1002;
 
   max-width: 1440px;
@@ -83,6 +83,11 @@
     max-width: 190px;
     background: url('./common/img/svg/arrow-date-time.svg') no-repeat 92.5% 50%;
     background-size: 19px 17px;
+  }
+
+  .time~.error {
+    right: 0;
+    text-align: center;
   }
 
   .logo {

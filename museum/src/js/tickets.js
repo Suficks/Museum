@@ -56,7 +56,7 @@ const inputs = bookingModal.querySelectorAll('input');
 const MINMANELENGTH = 3;
 const MAXMANELENGTH = 15;
 const NAME_REGEXP = /[^a-zа-яё\s]/gi;
-const EMAIL_REGEXP = /^[a-zA-Z0-9_-]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}$/;
+const EMAIL_REGEXP = /^[a-zA-Z0-9_-]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,5}$/;
 
 const errorMessage = {
   nameTooShort: 'Минимальное количество символов 3',
@@ -161,3 +161,37 @@ const dateChoice = () => {
 dateInput.addEventListener('input', dateChoice);
 
 // Выбор даты
+
+// Выбор времени
+
+const timeInput = document.querySelector('.time');
+const chosenTimeShow = document.querySelector('.overview__time');
+const startTime = '09:00';
+const endTime = '18:00';
+const step = '30';
+
+const timeChoice = () => {
+  const error = timeInput.nextElementSibling;
+  const selectedTime = timeInput.value;
+  const minutes = selectedTime.slice(3, 5);
+
+  if (selectedTime < startTime || selectedTime > endTime) {
+    error.innerHTML = `Выберите время между ${startTime} и ${endTime}`;
+  } else if (minutes !== step && minutes !== '00') {
+    error.innerHTML = `Выберите промежуток времени в ${step} минут`;
+  } else {
+    error.innerHTML = '';
+    const span = `<span>${selectedTime}</span>`;
+
+    if (!chosenTimeShow.querySelector('span')) {
+      chosenTimeShow.insertAdjacentHTML('beforeend', span);
+    } else {
+      chosenTimeShow.removeChild(chosenTimeShow.querySelector('span'));
+      chosenTimeShow.insertAdjacentHTML('beforeend', span);
+    }
+  }
+};
+
+timeInput.addEventListener('input', timeChoice);
+
+// Выбор времени
