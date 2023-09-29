@@ -134,18 +134,6 @@
       @include rubber (width, 80, 152, 768, 1024);
       @include rubber (height, 80, 152, 768, 1024);
     }
-
-    .iframe__slider .slick-slide {
-      @include rubber (width, 354, 300, 768, 1024);
-    }
-
-    .iframe__slider .slick-track {
-      @include rubber (gap, 20, 42, 768, 1024);
-    }
-
-    .iframe {
-      @include rubber (height, 199, 170, 768, 1024);
-    }
   }
 
   .gallery {
@@ -273,6 +261,24 @@
 
     .line {
       bottom: 122px;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .video {
+    .iframe__slider .slick-track {
+      @include rubber (height, 199, 250, 768, 1023);
+      gap: 0;
+    }
+
+    .iframe__slider .slick-slide {
+      max-width: 100%;
+      margin: 0 10px;
+    }
+
+    .iframe {
+      @include rubber (height, 199, 250, 768, 1023);
     }
   }
 }

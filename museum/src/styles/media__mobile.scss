@@ -323,16 +323,16 @@
       @include rubber (width, 180, 354, 420, 768)
     }
 
-    .iframe__slider .slick-slide {
-      @include rubber (width, 180, 354, 420, 768)
-    }
-
     .iframe__slider {
-      @include rubber (margin-bottom, 28, 7, 420, 768);
+      @include rubber (margin-bottom, 28, 10, 420, 768);
     }
 
     .iframe__slider .slick-track {
-      gap: 20px;
+      @include rubber (height, 101, 199, 420, 768);
+    }
+
+    .iframe {
+      @include rubber (height, 101, 199, 420, 768);
     }
 
     .slider__buttons {

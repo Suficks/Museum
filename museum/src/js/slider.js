@@ -29,10 +29,11 @@ $('.iframe__slider').slick({
   variableWidth: true,
   responsive: [
     {
-      breakpoint: 768,
+      breakpoint: 1024,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 1,
+        variableWidth: false,
+
       },
     },
   ],
