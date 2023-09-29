@@ -55,7 +55,6 @@ const inputs = bookingModal.querySelectorAll('input');
 
 const MINMANELENGTH = 3;
 const MAXMANELENGTH = 15;
-const MAXPHONELENGTH = 16;
 const NAME_REGEXP = /[^a-zа-яё\s]/gi;
 const EMAIL_REGEXP = /^[a-zA-Z0-9_-]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}$/;
 
@@ -64,13 +63,11 @@ const errorMessage = {
   nameTooLong: 'Максимальное количество символов 15',
   invalidSymbols: 'Введите имя, от 3 до 15 символов, используя только буквы и пробел',
   invalidEmail: 'Пожалуйста, введите корректный email-адрес',
-  phoneTooLong: 'Максимальное количество цифр 10',
 };
 
 const validation = (item) => {
   const error = item.nextElementSibling;
   const inputName = item.getAttribute('data-input');
-
   // let isCorrect = false;
 
   switch (inputName) {
@@ -112,16 +109,11 @@ const validation = (item) => {
 
     case ('tel'): {
       const maskOptions = {
-        mask: '+{7}(000)000-00-00',
+        mask: '+{7} (000) 000-00-00',
       };
       const mask = IMask(item, maskOptions);
       mask.updateValue();
-      if (item.value.length > MAXPHONELENGTH) {
-        item.classList.add('input__invalid');
-        error.innerHTML = errorMessage.phoneTooLong;
-      } else {
-        item.classList.remove('input__invalid');
-        error.innerHTML = '';
+      if (!item.value === '') {
         // isCorrect = true;
       }
       break;
@@ -136,3 +128,36 @@ inputs.forEach((item) => {
 });
 
 // Валидация форм
+
+// Выбор даты
+
+const dateInput = document.querySelector('.date');
+const chosenDateShow = document.querySelector('.overview__date');
+
+const setDateLimit = () => {
+  const now = new Date().toLocaleDateString();
+  const today = now.split('.').reverse().join('-');
+  dateInput.setAttribute('min', today);
+};
+
+setDateLimit();
+
+const dateChoice = () => {
+  const chosenDate = dateInput.value;
+  const date = new Date(chosenDate.replaceAll('-', '.'));
+  const weekDay = date.toLocaleString('en-US', { weekday: 'long' });
+  const month = date.toLocaleString('en-US', { month: 'long' });
+  const day = date.getDate();
+  const span = `<span>${weekDay}, ${month} ${day}</span>`;
+
+  if (!chosenDateShow.querySelector('span')) {
+    chosenDateShow.insertAdjacentHTML('beforeend', span);
+  } else {
+    chosenDateShow.removeChild(chosenDateShow.querySelector('span'));
+    chosenDateShow.insertAdjacentHTML('beforeend', span);
+  }
+};
+
+dateInput.addEventListener('input', dateChoice);
+
+// Выбор даты

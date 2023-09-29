@@ -71,6 +71,7 @@
     border: 1px solid $color-dark;
     box-sizing: border-box;
     @include roboto (18px, 400, 20px);
+    cursor: pointer;
   }
 
   .input__invalid {
@@ -219,6 +220,7 @@
   .info__logo {
     width: 18px;
     height: 15px;
+    margin-right: 8px;
   }
 
   .ticket__pic {
@@ -229,6 +231,7 @@
 
   .info {
     margin-bottom: 8px;
+    @include roboto (18px, 300, 22px);
   }
 
   .overview__type {
