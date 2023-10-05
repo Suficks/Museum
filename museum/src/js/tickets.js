@@ -180,6 +180,7 @@ const step = '30';
 const timeChoice = () => {
   const error = timeInput.nextElementSibling;
   const selectedTime = timeInput.value;
+  const hours = selectedTime.slice(0, 2);
   const minutes = selectedTime.slice(3, 5);
 
   if (selectedTime < startTime || selectedTime > endTime) {
@@ -188,7 +189,7 @@ const timeChoice = () => {
     error.innerHTML = `Выберите промежуток в ${step} минут`;
   } else {
     error.innerHTML = '';
-    const span = `<span>${selectedTime}</span>`;
+    const span = `<span>${hours} : ${minutes}</span>`;
     addInfoToTicket(chosenTimeShow, span);
   }
 };
@@ -244,7 +245,6 @@ const showTicketType = () => {
   const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
 
   if (modal.classList.contains('modal__active')) {
-    console.log('hello');
     span = `<span>${select.value}</span>`;
   } else if (ticketType) {
     select.value = ticketType;
@@ -260,3 +260,49 @@ radios.forEach((item) => {
 select.addEventListener('input', showTicketType);
 
 // Выбор билета
+
+// Стоимость билетов
+
+const basicTicketsInput = document.querySelector('.counter__item');
+const seniorTicketsInput = document.querySelector('.second');
+const totalPriceContainer = document.querySelector('.final__cost');
+const amountWrap = document.querySelector('.amount__wrap');
+const buttons = [...amountWrap.querySelectorAll('button')];
+
+const ticketsTotalPriceShow = () => {
+  const basicTicketsAmount = basicTicketsInput.value;
+  const seniorTicketsAmount = seniorTicketsInput.value;
+  const selected = Array.from(radios).find((radio) => radio.checked);
+  const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
+  let basicPrice;
+  let seniorPrice;
+
+  switch (ticketType) {
+    case 'Permanent exhibition':
+      basicPrice = 20;
+      seniorPrice = basicPrice / 2;
+      break;
+    case 'Temporary exhibition':
+      basicPrice = 25;
+      seniorPrice = 12;
+      break;
+    case 'Combined Admission':
+      basicPrice = 40;
+      seniorPrice = basicPrice / 2;
+      break;
+  }
+
+  const totalPrice = basicTicketsAmount * basicPrice + seniorTicketsAmount * seniorPrice;
+  totalPriceContainer.innerHTML = totalPrice;
+};
+
+basicTicketsInput.addEventListener('input', ticketsTotalPriceShow);
+seniorTicketsInput.addEventListener('input', ticketsTotalPriceShow);
+radios.forEach((item) => {
+  item.addEventListener('click', ticketsTotalPriceShow);
+});
+buttons.forEach((item) => {
+  item.addEventListener('click', ticketsTotalPriceShow);
+});
+
+// Стоимость билетов
