@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable default-case */
 import IMask from 'imask';
 // import $ from 'jquery';
@@ -297,6 +298,14 @@ let seniorPrice;
 
 const priceAccordingExhibition = (ticketType) => {
   switch (ticketType) {
+    case '':
+      basicPrice = 0;
+      seniorPrice = 0;
+      basicTicketType.innerHTML = `Basic (${basicPrice} €)`;
+      seniorTicketType.innerHTML = `Senior (${seniorPrice} €)`;
+      basicEntryTicketType.innerHTML = `Basic 18+ (${basicPrice} €)`;
+      seniorEntryTicketType.innerHTML = `Senior 65+ (${seniorPrice} €)`;
+      break;
     case 'Permanent exhibition':
       basicPrice = 20;
       seniorPrice = basicPrice / 2;
@@ -329,9 +338,11 @@ const priceAccordingExhibition = (ticketType) => {
 // Стоимость билетов в модальном окне
 
 function ticketsTotalPriceShowInModal() {
-  priceAccordingExhibition(select.value);
+  const selectValue = select.value;
   const basicTicketsAmount = basicTicketsInputModal.value;
   const seniorTicketsAmount = seniorTicketsInputModal.value;
+
+  priceAccordingExhibition(selectValue);
   const basicTicketsPrice = basicTicketsAmount * basicPrice;
   const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
   const totalPrice = basicTicketsPrice + seniorTicketsPrice;
@@ -341,6 +352,7 @@ function ticketsTotalPriceShowInModal() {
   basicCost.innerHTML = `${basicTicketsPrice} €`;
   seniorCost.innerHTML = `${seniorTicketsPrice} €`;
   totalPriceContainerModal.innerHTML = totalPrice;
+  addTicketsToLocalstorage(basicTicketsAmount, seniorTicketsAmount, selectValue, totalPrice);
 }
 
 selectContainer.addEventListener('click', ticketsTotalPriceShowInModal);
@@ -360,13 +372,14 @@ buttonsModal.forEach((item) => {
 const ticketsTotalPriceShow = () => {
   const basicTicketsAmount = basicTicketsInput.value;
   const seniorTicketsAmount = seniorTicketsInput.value;
-  const basicTicketsPrice = basicTicketsAmount * basicPrice;
-  const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
-  const totalPrice = basicTicketsPrice + seniorTicketsPrice;
   const selected = Array.from(radios).find((radio) => radio.checked);
   const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
 
   priceAccordingExhibition(ticketType);
+
+  const basicTicketsPrice = basicTicketsAmount * basicPrice;
+  const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
+  const totalPrice = basicTicketsPrice + seniorTicketsPrice;
 
   if (modal.classList.contains('modal__active')) ticketsTotalPriceShowInModal();
   else {
@@ -378,6 +391,7 @@ const ticketsTotalPriceShow = () => {
     totalPriceContainerModal.innerHTML = `${totalPrice} €`;
     basicCost.innerHTML = `${basicTicketsPrice} €`;
     seniorCost.innerHTML = `${seniorTicketsPrice} €`;
+    addTicketsToLocalstorage(basicTicketsAmount, seniorTicketsAmount, ticketType, totalPrice);
   }
 };
 
@@ -391,3 +405,26 @@ buttons.forEach((item) => {
 });
 
 // Стоимость билетов из секции tickets
+
+// Добавление билетов в local storage
+
+const ticket = {
+  basic: 0,
+  senior: 0,
+  ticketType: '',
+  totalPrice: 0,
+};
+
+const setLocalStorageData = (data, key) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
+
+const addTicketsToLocalstorage = (basic, senior, ticketType, total) => {
+  ticket.basic = basic;
+  ticket.senior = senior;
+  ticket.ticketType = ticketType;
+  ticket.totalPrice = total;
+  setLocalStorageData(ticket, 'ticket');
+};
+
+// Добавление билетов в local storage
