@@ -265,35 +265,120 @@ select.addEventListener('input', showTicketType);
 
 const basicTicketsInput = document.querySelector('.counter__item');
 const seniorTicketsInput = document.querySelector('.second');
+
+const basicTicketsInputModal = document.querySelector('.basic__count');
+const seniorTicketsInputModal = document.querySelector('.senior__count');
+
 const totalPriceContainer = document.querySelector('.final__cost');
+const totalPriceContainerModal = document.querySelector('.total__cost');
+
 const amountWrap = document.querySelector('.amount__wrap');
 const buttons = [...amountWrap.querySelectorAll('button')];
 
-const ticketsTotalPriceShow = () => {
-  const basicTicketsAmount = basicTicketsInput.value;
-  const seniorTicketsAmount = seniorTicketsInput.value;
-  const selected = Array.from(radios).find((radio) => radio.checked);
-  const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
-  let basicPrice;
-  let seniorPrice;
+const ticketForm = document.querySelector('.ticket__form');
+const buttonsModal = [...ticketForm.querySelectorAll('button')];
 
+const basicTicketsAmountModal = document.querySelector('.basic__amount');
+const seniorTicketsAmountModal = document.querySelector('.senior__amount');
+
+const basicCost = document.querySelector('.basic__cost');
+const seniorCost = document.querySelector('.senior__cost');
+
+const basicTicketType = document.querySelector('.basic__type');
+const seniorTicketType = document.querySelector('.senior__type');
+
+const basicEntryTicketType = document.querySelector('.basic__ticket');
+const seniorEntryTicketType = document.querySelector('.senior__ticket');
+
+let basicPrice;
+let seniorPrice;
+
+// Тип выставки
+
+const priceAccordingExhibition = (ticketType) => {
   switch (ticketType) {
     case 'Permanent exhibition':
       basicPrice = 20;
       seniorPrice = basicPrice / 2;
+      basicTicketType.innerHTML = `Basic (${basicPrice} €)`;
+      seniorTicketType.innerHTML = `Senior (${seniorPrice} €)`;
+      basicEntryTicketType.innerHTML = `Basic 18+ (${basicPrice} €)`;
+      seniorEntryTicketType.innerHTML = `Senior 65+ (${seniorPrice} €)`;
       break;
     case 'Temporary exhibition':
       basicPrice = 25;
       seniorPrice = 12;
+      basicTicketType.innerHTML = `Basic (${basicPrice} €)`;
+      seniorTicketType.innerHTML = `Senior (${seniorPrice} €)`;
+      basicEntryTicketType.innerHTML = `Basic 18+ (${basicPrice} €)`;
+      seniorEntryTicketType.innerHTML = `Senior 65+ (${seniorPrice} €)`;
       break;
     case 'Combined Admission':
       basicPrice = 40;
       seniorPrice = basicPrice / 2;
+      basicTicketType.innerHTML = `Basic (${basicPrice} €)`;
+      seniorTicketType.innerHTML = `Senior (${seniorPrice} €)`;
+      basicEntryTicketType.innerHTML = `Basic 18+ (${basicPrice} €)`;
+      seniorEntryTicketType.innerHTML = `Senior 65+ (${seniorPrice} €)`;
       break;
   }
+};
 
-  const totalPrice = basicTicketsAmount * basicPrice + seniorTicketsAmount * seniorPrice;
-  totalPriceContainer.innerHTML = totalPrice;
+// Тип выставки
+
+// Стоимость билетов в модальном окне
+
+function ticketsTotalPriceShowInModal() {
+  priceAccordingExhibition(select.value);
+  const basicTicketsAmount = basicTicketsInputModal.value;
+  const seniorTicketsAmount = seniorTicketsInputModal.value;
+  const basicTicketsPrice = basicTicketsAmount * basicPrice;
+  const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
+  const totalPrice = basicTicketsPrice + seniorTicketsPrice;
+
+  basicTicketsAmountModal.innerHTML = basicTicketsAmount;
+  seniorTicketsAmountModal.innerHTML = seniorTicketsAmount;
+  basicCost.innerHTML = `${basicTicketsPrice} €`;
+  seniorCost.innerHTML = `${seniorTicketsPrice} €`;
+  totalPriceContainerModal.innerHTML = totalPrice;
+}
+
+selectContainer.addEventListener('click', ticketsTotalPriceShowInModal);
+basicEntryTicketType.addEventListener('input', ticketsTotalPriceShowInModal);
+seniorEntryTicketType.addEventListener('input', ticketsTotalPriceShowInModal);
+buttonsModal.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    ticketsTotalPriceShowInModal();
+  });
+});
+
+// Стоимость билетов в модальном окне
+
+// Стоимость билетов из секции tickets
+
+const ticketsTotalPriceShow = () => {
+  const basicTicketsAmount = basicTicketsInput.value;
+  const seniorTicketsAmount = seniorTicketsInput.value;
+  const basicTicketsPrice = basicTicketsAmount * basicPrice;
+  const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
+  const totalPrice = basicTicketsPrice + seniorTicketsPrice;
+  const selected = Array.from(radios).find((radio) => radio.checked);
+  const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
+
+  priceAccordingExhibition(ticketType);
+
+  if (modal.classList.contains('modal__active')) ticketsTotalPriceShowInModal();
+  else {
+    basicTicketsInputModal.value = basicTicketsAmount;
+    seniorTicketsInputModal.value = seniorTicketsAmount;
+    basicTicketsAmountModal.innerHTML = basicTicketsAmount;
+    seniorTicketsAmountModal.innerHTML = seniorTicketsAmount;
+    totalPriceContainer.innerHTML = totalPrice;
+    totalPriceContainerModal.innerHTML = `${totalPrice} €`;
+    basicCost.innerHTML = `${basicTicketsPrice} €`;
+    seniorCost.innerHTML = `${seniorTicketsPrice} €`;
+  }
 };
 
 basicTicketsInput.addEventListener('input', ticketsTotalPriceShow);
@@ -305,4 +390,4 @@ buttons.forEach((item) => {
   item.addEventListener('click', ticketsTotalPriceShow);
 });
 
-// Стоимость билетов
+// Стоимость билетов из секции tickets
