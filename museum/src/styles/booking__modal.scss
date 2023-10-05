@@ -158,10 +158,19 @@
 
   option {
     @include roboto (18px, 300, 20px);
+  }
 
-    &:nth-child(3) {
+  .jq-selectbox li {
+    height: 45px;
+    cursor: pointer;
+
+    &:hover {
       background-color: #E7E7E7;
     }
+  }
+
+  .jq-selectbox li.selected {
+    background-color: #E7E7E7;
   }
 
   .ticket__form {
@@ -385,7 +394,6 @@
     outline: none;
     border: none;
   }
-
 
   .month,
   .year {

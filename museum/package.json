@@ -36,6 +36,7 @@
     "file-loader": "^6.2.0",
     "imask": "^7.1.3",
     "jquery": "^3.7.1",
+    "jquery-form-styler": "^2.0.2",
     "slick-slider": "^1.8.2"
   }
 }

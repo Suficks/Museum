@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import IMask from 'imask';
+// import $ from 'jquery';
 
 // Открытие/закрытие модального окна
 
@@ -129,6 +129,19 @@ inputs.forEach((item) => {
 
 // Валидация форм
 
+// Добавление выбранной информации в билет
+
+const addInfoToTicket = (infoContainer, info) => {
+  if (!infoContainer.querySelector('span')) {
+    infoContainer.insertAdjacentHTML('beforeend', info);
+  } else {
+    infoContainer.removeChild(infoContainer.querySelector('span'));
+    infoContainer.insertAdjacentHTML('beforeend', info);
+  }
+};
+
+// Добавление выбранной информации в билет
+
 // Выбор даты
 
 const dateInput = document.querySelector('.date');
@@ -149,13 +162,7 @@ const dateChoice = () => {
   const month = date.toLocaleString('en-US', { month: 'long' });
   const day = date.getDate();
   const span = `<span>${weekDay}, ${month} ${day}</span>`;
-
-  if (!chosenDateShow.querySelector('span')) {
-    chosenDateShow.insertAdjacentHTML('beforeend', span);
-  } else {
-    chosenDateShow.removeChild(chosenDateShow.querySelector('span'));
-    chosenDateShow.insertAdjacentHTML('beforeend', span);
-  }
+  addInfoToTicket(chosenDateShow, span);
 };
 
 dateInput.addEventListener('input', dateChoice);
@@ -182,13 +189,7 @@ const timeChoice = () => {
   } else {
     error.innerHTML = '';
     const span = `<span>${selectedTime}</span>`;
-
-    if (!chosenTimeShow.querySelector('span')) {
-      chosenTimeShow.insertAdjacentHTML('beforeend', span);
-    } else {
-      chosenTimeShow.removeChild(chosenTimeShow.querySelector('span'));
-      chosenTimeShow.insertAdjacentHTML('beforeend', span);
-    }
+    addInfoToTicket(chosenTimeShow, span);
   }
 };
 
@@ -196,7 +197,7 @@ timeInput.addEventListener('input', timeChoice);
 
 // Выбор времени
 
-// Пoворот стрелочки при клике на select
+// Пoворот стрелочки при клике на input
 
 const arrowIconSelect = document.querySelector('.arrow__icon__select');
 const arrowIconDate = document.querySelector('.arrow__icon__date');
@@ -215,4 +216,47 @@ selectContainer.addEventListener('click', () => {
   arrowIconSelect.classList.toggle('rotate');
 });
 
-// Пoворот стрелочки при клике на select
+// Пoворот стрелочки при клике на input
+
+// Стилизация select
+
+// (function selectStyle() {
+//   $(() => {
+//     $('select').styler({
+//       onSelectOpened: () => {
+//         arrowIconSelect.classList.toggle('rotate');
+//       },
+//     });
+//   });
+// }());
+
+// Стилизация select
+
+// Выбор билета
+
+const radios = document.getElementsByName('type');
+const select = document.querySelector('.select');
+const chosenTicketType = document.querySelector('.overview__type');
+let span = '';
+
+const showTicketType = () => {
+  const selected = Array.from(radios).find((radio) => radio.checked);
+  const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
+
+  if (modal.classList.contains('modal__active')) {
+    console.log('hello');
+    span = `<span>${select.value}</span>`;
+  } else if (ticketType) {
+    select.value = ticketType;
+    span = `<span>${ticketType}</span>`;
+  } else span = `<span>${select.value}</span>`;
+
+  addInfoToTicket(chosenTicketType, span);
+};
+
+radios.forEach((item) => {
+  item.addEventListener('click', showTicketType);
+});
+select.addEventListener('input', showTicketType);
+
+// Выбор билета
