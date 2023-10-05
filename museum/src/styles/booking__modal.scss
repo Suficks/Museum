@@ -78,11 +78,27 @@
     border: 1px solid red;
   }
 
+  .time__container,
+  .date__container {
+    position: relative;
+  }
+
+  .arrow__icon__date,
+  .arrow__icon__time {
+    position: absolute;
+    top: 14.5px;
+    right: 7%;
+    background: url('./common/img/svg/arrow-date-time.svg') no-repeat;
+    background-size: 19px 17px;
+    width: 19px;
+    height: 17px;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+
   .date,
   .time {
     max-width: 190px;
-    background: url('./common/img/svg/arrow-date-time.svg') no-repeat 92.5% 50%;
-    background-size: 19px 17px;
   }
 
   .time~.error {
@@ -95,12 +111,23 @@
     top: 50%;
     transform: translateY(-50%);
     left: 3.5%;
+    z-index: 1;
   }
 
   .time__logo {
-    left: 56%;
+    position: absolute;
+    left: 7%;
     width: 17px;
     height: 16px;
+  }
+
+  .date__logo {
+    position: absolute;
+    left: 7%;
+  }
+
+  .select__container {
+    position: relative;
   }
 
   .select {
@@ -108,11 +135,25 @@
     -moz-appearance: none;
     appearance: none;
 
-    background: url('./common/img/svg/arrow-date-time.svg') no-repeat 96.5% 50%;
-    background-size: 19px 17px;
-
     @include roboto (18px, 400, 20px);
     color: $color-dark;
+  }
+
+  .arrow__icon__select {
+    position: absolute;
+    top: 14.5px;
+    right: 14px;
+    background: url('./common/img/svg/arrow-date-time.svg') no-repeat;
+    background-size: 19px 17px;
+    width: 19px;
+    height: 17px;
+    cursor: pointer;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+
+  .rotate {
+    transform: rotate(180deg);
   }
 
   option {
@@ -235,7 +276,7 @@
   }
 
   .info {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     @include roboto (18px, 300, 22px);
   }
 

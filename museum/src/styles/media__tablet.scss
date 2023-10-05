@@ -338,27 +338,35 @@
       gap: 28px;
     }
 
-    .date,
-    .time {
-      max-width: 250px;
-      background: url('./common/img/svg/arrow-date-time.svg') no-repeat 94.5% 50%;
-    }
-
     .input {
       width: 530px;
       padding-left: 43px;
+    }
+
+    .time__container,
+    .date__container {
+      max-width: 250px;
+      width: 100%;
+    }
+
+    .arrow__icon__date,
+    .arrow__icon__time {
+      right: 5%;
+    }
+
+    .date,
+    .time {
+      max-width: 250px;
+      width: 100%;
     }
 
     .logo {
       left: 2.5%;
     }
 
+    .date__logo,
     .time__logo {
-      left: 55%;
-    }
-
-    .select {
-      background: url(http://localhost:3000/assets/arrow-date-time.svg) no-repeat 97.5% 50%;
+      left: 5%;
     }
 
     .ticket__form {

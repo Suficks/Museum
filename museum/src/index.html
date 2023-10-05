@@ -126,7 +126,7 @@
     <!-- welcome -->
 
     <!-- visiting -->
-    <section class="visiting" id="visiting">
+    <!-- <section class="visiting" id="visiting">
       <div class="wrapper">
         <h2 class="section__title">Virtual tour</h2>
         <div class="cards">
@@ -168,7 +168,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- visiting -->
 
     <!-- explore -->
@@ -327,7 +327,7 @@
     <!-- tickets -->
 
     <!-- parallax -->
-    <div class="parallax"></div>
+    <!-- <div class="parallax"></div> -->
     <!-- parallax -->
 
     <!-- contacts -->
@@ -349,7 +349,7 @@
   </main>
 
   <!-- footer -->
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="wrapper">
       <div class="footer__wrap">
         <div class="section__left">
@@ -443,7 +443,7 @@
       </div>
     </div>
     <div class="line"></div>
-  </footer>
+  </footer> -->
   <!-- footer -->
 
   <!-- booking modal -->
@@ -454,10 +454,17 @@
         <h2 class="title">Booking tickets</h2>
         <h3 class="subtitle">Tour to Louvre</h3>
         <div class="input__container">
-          <img src="./common/img/svg/date.svg" alt="date" class="logo date__logo">
-          <input class="input date" type="text" placeholder="Date" onfocus="(this.type='date')">
-          <img src="./common/img/svg/time.svg" alt="time" class="logo time__logo">
-          <input class="input time" type="text" placeholder="Time" onfocus="(this.type='time')">
+          <div class="date__container">
+            <img src="./common/img/svg/date.svg" alt="date" class="logo date__logo">
+            <input class="input date" type="text" placeholder="Date" onfocus="(this.type='date')">
+            <div class="arrow__icon__date"></div>
+          </div>
+          <div class="time__container">
+            <img src="./common/img/svg/time.svg" alt="time" class="logo time__logo">
+            <input class="input time" type="text" placeholder="Time" onfocus="(this.type='time')">
+            <div class="error"></div>
+            <div class="arrow__icon__time"></div>
+          </div>
         </div>
         <div class="input__container">
           <img src="./common/img/svg/name.svg" alt="name" class="logo">
@@ -474,7 +481,7 @@
           <input class="input tel" type="text" placeholder="Phone" data-input="tel">
           <div class="error"></div>
         </div>
-        <div class="input__container">
+        <div class="input__container select__container">
           <img src="./common/img/svg/select.svg" alt="select" class="logo">
           <select class="input select">
             <option value="" selected hidden class="select__placeholder">Ticket Type</option>
@@ -482,6 +489,7 @@
             <option value="Temporary exhibition">Temporary exhibition</option>
             <option value="Combined Admission">Combined Admission</option>
           </select>
+          <div class="arrow__icon__select"></div>
         </div>
         <div class="ticket__form">
           <div class="entry__title">Entry ticket</div>

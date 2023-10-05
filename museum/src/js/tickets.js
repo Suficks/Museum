@@ -178,7 +178,7 @@ const timeChoice = () => {
   if (selectedTime < startTime || selectedTime > endTime) {
     error.innerHTML = `Выберите время между ${startTime} и ${endTime}`;
   } else if (minutes !== step && minutes !== '00') {
-    error.innerHTML = `Выберите промежуток времени в ${step} минут`;
+    error.innerHTML = `Выберите промежуток в ${step} минут`;
   } else {
     error.innerHTML = '';
     const span = `<span>${selectedTime}</span>`;
@@ -195,3 +195,24 @@ const timeChoice = () => {
 timeInput.addEventListener('input', timeChoice);
 
 // Выбор времени
+
+// Пoворот стрелочки при клике на select
+
+const arrowIconSelect = document.querySelector('.arrow__icon__select');
+const arrowIconDate = document.querySelector('.arrow__icon__date');
+const arrowIconTime = document.querySelector('.arrow__icon__time');
+const dateContainer = document.querySelector('.date__container');
+const timeContainer = document.querySelector('.time__container');
+const selectContainer = document.querySelector('.select__container');
+
+dateContainer.addEventListener('click', () => {
+  arrowIconDate.classList.toggle('rotate');
+});
+timeContainer.addEventListener('click', () => {
+  arrowIconTime.classList.toggle('rotate');
+});
+selectContainer.addEventListener('click', () => {
+  arrowIconSelect.classList.toggle('rotate');
+});
+
+// Пoворот стрелочки при клике на select

@@ -528,19 +528,20 @@
     .date,
     .time {
       max-width: 100%;
-      background: url('./common/img/svg/arrow-date-time.svg') no-repeat 94.5% 50%;
     }
 
     .date {
       margin-bottom: 20px;
     }
 
-    .date__logo {
-      top: 21%;
+    .time__container,
+    .date__container {
+      max-width: 100%;
     }
 
-    .time__logo {
-      top: 80%;
+    .arrow__icon__date,
+    .arrow__icon__time {
+      right: 3%;
     }
 
     .time~.error {
@@ -553,10 +554,6 @@
 
     .logo {
       left: 15px;
-    }
-
-    .select {
-      background: url(http://localhost:3000/assets/arrow-date-time.svg) no-repeat 94.5% 50%;
     }
 
     .minus {
