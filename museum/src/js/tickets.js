@@ -1,7 +1,6 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable default-case */
 import IMask from 'imask';
-// import $ from 'jquery';
 
 // Открытие/закрытие модального окна
 
@@ -185,7 +184,7 @@ const timeChoice = () => {
   const minutes = selectedTime.slice(3, 5);
 
   if (selectedTime < startTime || selectedTime > endTime) {
-    error.innerHTML = `Выберите время между ${startTime} и ${endTime}`;
+    error.innerHTML = `Время между ${startTime} и ${endTime}`;
   } else if (minutes !== step && minutes !== '00') {
     error.innerHTML = `Выберите промежуток в ${step} минут`;
   } else {
@@ -199,40 +198,16 @@ timeInput.addEventListener('input', timeChoice);
 
 // Выбор времени
 
-// Пoворот стрелочки при клике на input
+// Пoворот стрелочки при клике на select
 
 const arrowIconSelect = document.querySelector('.arrow__icon__select');
-const arrowIconDate = document.querySelector('.arrow__icon__date');
-const arrowIconTime = document.querySelector('.arrow__icon__time');
-const dateContainer = document.querySelector('.date__container');
-const timeContainer = document.querySelector('.time__container');
 const selectContainer = document.querySelector('.select__container');
 
-dateContainer.addEventListener('click', () => {
-  arrowIconDate.classList.toggle('rotate');
-});
-timeContainer.addEventListener('click', () => {
-  arrowIconTime.classList.toggle('rotate');
-});
 selectContainer.addEventListener('click', () => {
   arrowIconSelect.classList.toggle('rotate');
 });
 
-// Пoворот стрелочки при клике на input
-
-// Стилизация select
-
-// (function selectStyle() {
-//   $(() => {
-//     $('select').styler({
-//       onSelectOpened: () => {
-//         arrowIconSelect.classList.toggle('rotate');
-//       },
-//     });
-//   });
-// }());
-
-// Стилизация select
+// Пoворот стрелочки при клике на select
 
 // Выбор билета
 
@@ -277,7 +252,7 @@ const amountWrap = document.querySelector('.amount__wrap');
 const buttons = [...amountWrap.querySelectorAll('button')];
 
 const ticketForm = document.querySelector('.ticket__form');
-const buttonsModal = [...ticketForm.querySelectorAll('button')];
+const buttonsInModal = [...ticketForm.querySelectorAll('button')];
 
 const basicTicketsAmountModal = document.querySelector('.basic__amount');
 const seniorTicketsAmountModal = document.querySelector('.senior__amount');
@@ -335,30 +310,80 @@ const priceAccordingExhibition = (ticketType) => {
 
 // Тип выставки
 
+// Добавление билетов в local storage
+
+const ticket = {
+  basic: 0,
+  senior: 0,
+  ticketType: '',
+  totalPrice: 0,
+};
+
+function setLocalStorageData(data, key) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function getLocalStorageData(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+function addTicketsToLocalstorage(basic, senior, ticketType, total) {
+  const localStorageData = getLocalStorageData('ticket');
+  if (localStorageData === null) setLocalStorageData(ticket, 'ticket');
+  else {
+    ticket.basic = basic;
+    ticket.senior = senior;
+    ticket.ticketType = ticketType;
+    ticket.totalPrice = total;
+    setLocalStorageData(ticket, 'ticket');
+  }
+}
+
+// Добавление билетов в local storage
+
+// Отображение данных
+
+let totalPrice;
+
+const dataDisplay = (basicAmount, seniorAmount, ticketType) => {
+  priceAccordingExhibition(ticketType);
+  const basicTicketsPrice = basicAmount * basicPrice || 0;
+  const seniorTicketsPrice = seniorAmount * seniorPrice || 0;
+  totalPrice = basicTicketsPrice + seniorTicketsPrice;
+
+  select.value = ticketType || '';
+  const active = Array.from(radios).find((radio) => radio.parentNode.querySelector('.type__name').textContent === ticketType);
+  if (active) active.checked = true;
+  span = `<span>${select.value}</span>`;
+  addInfoToTicket(chosenTicketType, span);
+  basicTicketsAmountModal.innerHTML = basicAmount || 0;
+  seniorTicketsAmountModal.innerHTML = seniorAmount || 0;
+  basicCost.innerHTML = `${basicTicketsPrice} €`;
+  seniorCost.innerHTML = `${seniorTicketsPrice} €`;
+  totalPriceContainerModal.innerHTML = `${totalPrice} €`;
+  totalPriceContainer.innerHTML = totalPrice || 0;
+  basicTicketsInputModal.value = basicAmount || 0;
+  seniorTicketsInputModal.value = seniorAmount || 0;
+  basicTicketsInput.value = basicAmount || 0;
+  seniorTicketsInput.value = seniorAmount || 0;
+};
+
+// Отображение данных
+
 // Стоимость билетов в модальном окне
 
 function ticketsTotalPriceShowInModal() {
   const selectValue = select.value;
   const basicTicketsAmount = basicTicketsInputModal.value;
   const seniorTicketsAmount = seniorTicketsInputModal.value;
-
-  priceAccordingExhibition(selectValue);
-  const basicTicketsPrice = basicTicketsAmount * basicPrice;
-  const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
-  const totalPrice = basicTicketsPrice + seniorTicketsPrice;
-
-  basicTicketsAmountModal.innerHTML = basicTicketsAmount;
-  seniorTicketsAmountModal.innerHTML = seniorTicketsAmount;
-  basicCost.innerHTML = `${basicTicketsPrice} €`;
-  seniorCost.innerHTML = `${seniorTicketsPrice} €`;
-  totalPriceContainerModal.innerHTML = totalPrice;
+  dataDisplay(basicTicketsAmount, seniorTicketsAmount, selectValue);
   addTicketsToLocalstorage(basicTicketsAmount, seniorTicketsAmount, selectValue, totalPrice);
 }
 
 selectContainer.addEventListener('click', ticketsTotalPriceShowInModal);
 basicEntryTicketType.addEventListener('input', ticketsTotalPriceShowInModal);
 seniorEntryTicketType.addEventListener('input', ticketsTotalPriceShowInModal);
-buttonsModal.forEach((item) => {
+buttonsInModal.forEach((item) => {
   item.addEventListener('click', (e) => {
     e.preventDefault();
     ticketsTotalPriceShowInModal();
@@ -375,24 +400,8 @@ const ticketsTotalPriceShow = () => {
   const selected = Array.from(radios).find((radio) => radio.checked);
   const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
 
-  priceAccordingExhibition(ticketType);
-
-  const basicTicketsPrice = basicTicketsAmount * basicPrice;
-  const seniorTicketsPrice = seniorTicketsAmount * seniorPrice;
-  const totalPrice = basicTicketsPrice + seniorTicketsPrice;
-
-  if (modal.classList.contains('modal__active')) ticketsTotalPriceShowInModal();
-  else {
-    basicTicketsInputModal.value = basicTicketsAmount;
-    seniorTicketsInputModal.value = seniorTicketsAmount;
-    basicTicketsAmountModal.innerHTML = basicTicketsAmount;
-    seniorTicketsAmountModal.innerHTML = seniorTicketsAmount;
-    totalPriceContainer.innerHTML = totalPrice;
-    totalPriceContainerModal.innerHTML = `${totalPrice} €`;
-    basicCost.innerHTML = `${basicTicketsPrice} €`;
-    seniorCost.innerHTML = `${seniorTicketsPrice} €`;
-    addTicketsToLocalstorage(basicTicketsAmount, seniorTicketsAmount, ticketType, totalPrice);
-  }
+  dataDisplay(basicTicketsAmount, seniorTicketsAmount, ticketType);
+  addTicketsToLocalstorage(basicTicketsAmount, seniorTicketsAmount, ticketType, totalPrice);
 };
 
 basicTicketsInput.addEventListener('input', ticketsTotalPriceShow);
@@ -406,25 +415,13 @@ buttons.forEach((item) => {
 
 // Стоимость билетов из секции tickets
 
-// Добавление билетов в local storage
+// Отображение данных из Local Storage при перезагрузке
 
-const ticket = {
-  basic: 0,
-  senior: 0,
-  ticketType: '',
-  totalPrice: 0,
+const dataFromLocalStorageDisplay = () => {
+  const localStorageData = getLocalStorageData('ticket');
+  dataDisplay(localStorageData?.basic, localStorageData?.senior, localStorageData?.ticketType);
 };
 
-const setLocalStorageData = (data, key) => {
-  localStorage.setItem(key, JSON.stringify(data));
-};
+dataFromLocalStorageDisplay();
 
-const addTicketsToLocalstorage = (basic, senior, ticketType, total) => {
-  ticket.basic = basic;
-  ticket.senior = senior;
-  ticket.ticketType = ticketType;
-  ticket.totalPrice = total;
-  setLocalStorageData(ticket, 'ticket');
-};
-
-// Добавление билетов в local storage
+// Отображение данных из Local Storage при перезагрузке
