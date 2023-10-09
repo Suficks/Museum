@@ -74,10 +74,6 @@
     cursor: pointer;
   }
 
-  .input__invalid {
-    border: 1px solid red;
-  }
-
   .time__container,
   .date__container {
     position: relative;
@@ -138,6 +134,7 @@
   .select {
     position: relative;
     left: -46px;
+    top: -1px;
     width: 400px;
     padding: 0;
     margin: 0;
@@ -150,14 +147,13 @@
 
     padding: 14px 0 0 43px;
 
-    border-left: 1px solid $color-dark;
-    border-right: 1px solid $color-dark;
-
     &:not(:first-child) {
       position: relative;
       background: white;
       z-index: 2;
       font-weight: 300;
+      border-left: 1px solid $color-dark;
+      border-right: 1px solid $color-dark;
 
       &:hover {
         background: #E7E7E7;
@@ -427,16 +423,73 @@
 
     outline: none;
     border: none;
+
+    &:focus {
+      border: 1px solid $color-dark;
+    }
+  }
+
+  .expiration__label {
+    display: inline-block;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 35px;
+      right: 40px;
+      background-color: #A4A4A3;
+    }
+  }
+
+  .month__less,
+  .month__more,
+  .year__less,
+  .year__more {
+    position: absolute;
+    right: 21px;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background: url('./common/img/png/triangle.png') no-repeat;
+    background-size: 10px 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .month__more,
+  .year__more {
+    transform: rotate(180deg);
+    top: 8px;
+  }
+
+  .month__less,
+  .year__less {
+    bottom: 21px;
   }
 
   .month,
   .year {
     width: 100px;
+
+    &:focus {
+      border: 1px solid $color-dark;
+    }
+  }
+
+  .cardholder .error {
+    bottom: 0;
   }
 
   .name__input {
     margin-bottom: 0;
     max-width: 320px;
+    text-transform: uppercase;
+
+    &:focus {
+      border: 1px solid $color-dark;
+    }
   }
 
   .visa {
@@ -487,6 +540,10 @@
   .cvc__input {
     max-width: 75px;
     margin: 0 0 6px;
+
+    &:focus {
+      border: 1px solid $color-dark;
+    }
   }
 
   .text {
@@ -552,6 +609,14 @@
     bottom: -15px;
     @include forum (13px, 400, 13px);
     color: red;
+  }
+
+  .input__invalid {
+    border: 1px solid red;
+
+    &:focus {
+      border: 1px solid red;
+    }
   }
 }
 

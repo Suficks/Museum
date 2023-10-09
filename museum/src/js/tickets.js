@@ -63,9 +63,10 @@ const errorMessage = {
   nameTooLong: 'Максимальное количество символов 15',
   invalidSymbols: 'Введите имя, от 3 до 15 символов, используя только буквы и пробел',
   invalidEmail: 'Пожалуйста, введите корректный email-адрес',
+  invalidCardholderName: 'Введите имя, используя только буквы и пробел',
 };
 
-const validation = (item) => {
+const bookingModalValidation = (item) => {
   const error = item.nextElementSibling;
   const inputName = item.getAttribute('data-input');
   // let isCorrect = false;
@@ -123,9 +124,63 @@ const validation = (item) => {
 
 inputs.forEach((item) => {
   item.addEventListener('input', () => {
-    validation(item);
+    bookingModalValidation(item);
   });
 });
+
+// Валидация банковской карты
+
+const cardNumberInput = document.querySelector('.card__input');
+const nameInput = document.querySelector('.name__input');
+const CVCInput = document.querySelector('.cvc__input');
+
+const bankCardInputs = [cardNumberInput, nameInput, CVCInput];
+
+const bankCardValidation = (item) => {
+  const error = item.nextElementSibling;
+  const inputName = item.getAttribute('data-input');
+  let formattedValue = '';
+  // let isCorrect = false;
+
+  switch (inputName) {
+    case ('cardNumber'):
+      item.value = item.value.replace(/[^\d\s]/g, '');
+      if (item.value.length > 19) {
+        item.value = item.value.slice(0, 19);
+      }
+      for (let i = 0; i < item.value.length; i += 1) {
+        if (i === 4 || i === 9 || i === 14) {
+          formattedValue += ' ';
+        } else formattedValue += item.value[i];
+      }
+      item.value = formattedValue;
+      break;
+    case ('cardholder'):
+      if (NAME_REGEXP.test(item.value)) {
+        nameInput.classList.add('input__invalid');
+        error.innerHTML = errorMessage.invalidCardholderName;
+      } else {
+        error.innerHTML = '';
+        nameInput.classList.remove('input__invalid');
+        // isCorrect = true;
+      }
+      break;
+    case ('CVC'):
+      if (item.value.length > 4) {
+        item.value = item.value.slice(0, 4);
+      }
+      // else isCorrect = true;
+      break;
+  }
+};
+
+bankCardInputs.forEach((item) => {
+  item.addEventListener('input', () => {
+    bankCardValidation(item);
+  });
+});
+
+// Валидация банковской карты
 
 // Валидация форм
 

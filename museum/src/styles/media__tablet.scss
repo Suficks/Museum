@@ -339,7 +339,8 @@
     }
 
     .input {
-      width: 530px;
+      max-width: 530px;
+      width: 100%;
       padding-left: 43px;
     }
 
@@ -367,6 +368,16 @@
     .date__logo,
     .time__logo {
       left: 5%;
+    }
+
+    .select {
+      max-width: 530px;
+      width: 100%;
+    }
+
+    .select__item {
+      width: 100%;
+      left: 2px;
     }
 
     .ticket__form {
