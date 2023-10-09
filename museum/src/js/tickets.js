@@ -131,7 +131,7 @@ inputs.forEach((item) => {
 
 // Добавление выбранной информации в билет
 
-const addInfoToTicket = (infoContainer, info) => {
+const addInfoToTicket = (infoContainer, info = '') => {
   if (!infoContainer.querySelector('span')) {
     infoContainer.insertAdjacentHTML('beforeend', info);
   } else {
@@ -198,34 +198,54 @@ timeInput.addEventListener('input', timeChoice);
 
 // Выбор времени
 
-// Пoворот стрелочки при клике на select
+// Кастомный Select
 
 const arrowIconSelect = document.querySelector('.arrow__icon__select');
 const selectContainer = document.querySelector('.select__container');
+const select = document.querySelector('.select');
+let selectOptions = [...document.querySelectorAll('.select__item')];
 
 selectContainer.addEventListener('click', () => {
   arrowIconSelect.classList.toggle('rotate');
+  selectContainer.classList.toggle('select__show');
 });
 
-// Пoворот стрелочки при клике на select
+const selectValueChange = (value) => {
+  selectOptions = [...document.querySelectorAll('.select__item')];
+  selectOptions[0].remove();
+  const itemCopy = `<li class="select__item">${value}</li>`;
+  select.insertAdjacentHTML('afterbegin', itemCopy);
+};
+
+selectOptions.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item.textContent !== 'Ticket Type') {
+      selectValueChange(item.textContent);
+    }
+    showTicketType();
+  });
+});
+
+// Кастомный Select
 
 // Выбор билета
 
 const radios = document.getElementsByName('type');
-const select = document.querySelector('.select');
 const chosenTicketType = document.querySelector('.overview__type');
 let span = '';
 
 const showTicketType = () => {
   const selected = Array.from(radios).find((radio) => radio.checked);
   const ticketType = selected?.parentNode.querySelector('.type__name').textContent;
+  selectOptions = [...document.querySelectorAll('.select__item')];
+  const selectValue = selectOptions[0].textContent;
 
-  if (modal.classList.contains('modal__active')) {
-    span = `<span>${select.value}</span>`;
+  if (modal.classList.contains('modal__active') && selectValue !== 'Ticket Type') {
+    span = `<span>${selectValue}</span>`;
   } else if (ticketType) {
-    select.value = ticketType;
+    selectValueChange(ticketType);
     span = `<span>${ticketType}</span>`;
-  } else span = `<span>${select.value}</span>`;
+  } else span = `<span>${selectValue}</span>`;
 
   addInfoToTicket(chosenTicketType, span);
 };
@@ -233,7 +253,6 @@ const showTicketType = () => {
 radios.forEach((item) => {
   item.addEventListener('click', showTicketType);
 });
-select.addEventListener('input', showTicketType);
 
 // Выбор билета
 
@@ -345,16 +364,16 @@ function addTicketsToLocalstorage(basic, senior, ticketType, total) {
 
 let totalPrice;
 
-const dataDisplay = (basicAmount, seniorAmount, ticketType) => {
+const dataDisplay = (basicAmount, seniorAmount, ticketType = '') => {
   priceAccordingExhibition(ticketType);
   const basicTicketsPrice = basicAmount * basicPrice || 0;
   const seniorTicketsPrice = seniorAmount * seniorPrice || 0;
   totalPrice = basicTicketsPrice + seniorTicketsPrice;
 
-  select.value = ticketType || '';
+  selectValueChange(ticketType || 'Ticket Type');
   const active = Array.from(radios).find((radio) => radio.parentNode.querySelector('.type__name').textContent === ticketType);
   if (active) active.checked = true;
-  span = `<span>${select.value}</span>`;
+  span = `<span>${ticketType}</span>`;
   addInfoToTicket(chosenTicketType, span);
   basicTicketsAmountModal.innerHTML = basicAmount || 0;
   seniorTicketsAmountModal.innerHTML = seniorAmount || 0;
@@ -373,7 +392,8 @@ const dataDisplay = (basicAmount, seniorAmount, ticketType) => {
 // Стоимость билетов в модальном окне
 
 function ticketsTotalPriceShowInModal() {
-  const selectValue = select.value;
+  selectOptions = [...document.querySelectorAll('.select__item')];
+  const selectValue = selectOptions[0].textContent;
   const basicTicketsAmount = basicTicketsInputModal.value;
   const seniorTicketsAmount = seniorTicketsInputModal.value;
   dataDisplay(basicTicketsAmount, seniorTicketsAmount, selectValue);

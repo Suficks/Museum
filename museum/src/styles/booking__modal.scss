@@ -128,15 +128,49 @@
 
   .select__container {
     position: relative;
+
+    border-top: 1px solid $color-dark;
+    border-bottom: 1px solid $color-dark;
+    color: $color-dark;
+    overflow: hidden;
   }
 
   .select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    position: relative;
+    left: -46px;
+    width: 400px;
+    padding: 0;
+    margin: 0;
 
-    @include roboto (18px, 400, 20px);
-    color: $color-dark;
+    list-style: none;
+  }
+
+  .select__item {
+    height: 31px;
+
+    padding: 14px 0 0 43px;
+
+    border-left: 1px solid $color-dark;
+    border-right: 1px solid $color-dark;
+
+    &:not(:first-child) {
+      position: relative;
+      background: white;
+      z-index: 2;
+      font-weight: 300;
+
+      &:hover {
+        background: #E7E7E7;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $color-dark;
+    }
+  }
+
+  .select__show {
+    overflow: visible;
   }
 
   .arrow__icon__select {
