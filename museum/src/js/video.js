@@ -12,13 +12,17 @@ const videoControls = document.querySelector('.video__controls');
 
 const backgroundNull = 'linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) 0%, rgb(196, 196, 196) 0%, rgb(196, 196, 196) 100%)';
 
-let timer;
-
 const videoPlay = (video) => {
   video.play();
   bigPlay.style.opacity = '0';
   play.style.backgroundImage = 'url(assets/pause.svg)';
-  videoControls.style.opacity = '0';
+
+  videoContainer.addEventListener('mouseenter', () => {
+    videoControls.style.opacity = '1';
+  });
+  videoContainer.addEventListener('mouseleave', () => {
+    videoControls.style.opacity = '0';
+  });
 };
 
 const videoPause = (video) => {
@@ -26,16 +30,13 @@ const videoPause = (video) => {
   bigPlay.style.opacity = '1';
   play.style.backgroundImage = 'url(assets/play.svg)';
   videoControls.style.opacity = '1';
-};
 
-const hideControls = (video) => {
-  console.log(video.play);
-  if (!video.paused) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      videoControls.style.opacity = '0';
-    }, 6000);
-  }
+  videoContainer.addEventListener('mouseenter', () => {
+    videoControls.style.opacity = '1';
+  });
+  videoContainer.addEventListener('mouseleave', () => {
+    videoControls.style.opacity = '1';
+  });
 };
 
 const toggleVideoStatus = (video) => {
@@ -121,6 +122,13 @@ const videosStop = () => {
   progressLine.style.background = backgroundNull;
 };
 
+const keyboardVideoControl = (video, e) => {
+  e.preventDefault();
+  if (e.keyCode === 32) toggleVideoStatus(video);
+  if (e.keyCode === 77) toggleVolume(video);
+  if (e.keyCode === 70) toggleFullscreen(video);
+};
+
 videos.forEach((video) => {
   video.addEventListener('click', () => {
     toggleVideoStatus(video);
@@ -141,9 +149,6 @@ videos.forEach((video) => {
   progressLine.addEventListener('click', (e) => {
     videoChangeTime(video, e);
   });
-  videoControls.addEventListener('mouseout', () => {
-    hideControls(video);
-  });
   volumeBar.addEventListener('change', () => {
     changeVolume(video);
   });
@@ -153,16 +158,15 @@ videos.forEach((video) => {
   fullscreenBtn.addEventListener('click', () => {
     toggleFullscreen(video);
   });
+  document.addEventListener('keydown', (e) => {
+    keyboardVideoControl(video, e);
+  });
 });
 
 progressLine.addEventListener('mousedown', () => {
   progressLine.addEventListener('mousemove', mouseMoveHandler);
 });
 document.addEventListener('mouseup', mouseUpHandler);
-
-videoControls.addEventListener('mouseleave', () => {
-  videoControls.style.opacity = '1';
-});
 
 sliderBtns.forEach((item) => {
   item.addEventListener('click', videosStop);
