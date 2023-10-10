@@ -27,7 +27,6 @@ const bookBtn = document.querySelector('.book__btn');
 const createRipple = (e) => {
   e.preventDefault();
   const button = e.currentTarget;
-  console.log(e.clientX);
   const ripple = document.createElement('span');
   const diameter = Math.max(button.clientWidth, button.clientHeight);
   const radius = diameter / 2;
@@ -51,32 +50,35 @@ bookBtn.addEventListener('click', createRipple);
 // Валидация форм
 
 const bookingModal = document.querySelector('.booking__modal');
-const inputs = bookingModal.querySelectorAll('input');
+const allInputs = Array.from(bookingModal.querySelectorAll('input'));
+const selectContainer = document.querySelector('.select__container');
+const select = document.querySelector('.select');
+let selectOptions = [...document.querySelectorAll('.select__item')];
 
 const MINMANELENGTH = 3;
 const MAXMANELENGTH = 15;
+const MAXCARDNUMBERLENGTH = 19;
 const NAME_REGEXP = /[^a-zа-яё\s]/gi;
 const EMAIL_REGEXP = /^[a-zA-Z0-9_-]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,5}$/;
 
 const errorMessage = {
   nameTooShort: 'Минимальное количество символов 3',
   nameTooLong: 'Максимальное количество символов 15',
+  cardNumberTooShort: 'Введите 16 цифр',
   invalidSymbols: 'Введите имя, от 3 до 15 символов, используя только буквы и пробел',
   invalidEmail: 'Пожалуйста, введите корректный email-адрес',
   invalidCardholderName: 'Введите имя, используя только буквы и пробел',
+  fillField: 'Пожалуйста, заполните поле',
 };
 
 const bookingModalValidation = (item) => {
   const error = item.nextElementSibling;
   const inputName = item.getAttribute('data-input');
-  // let isCorrect = false;
+  let formattedValue = '';
 
   switch (inputName) {
     case ('name'): {
-      if (item.value === '') {
-        item.classList.remove('input__invalid');
-        error.innerHTML = '';
-      } else if (NAME_REGEXP.test(item.value)) {
+      if (NAME_REGEXP.test(item.value)) {
         item.classList.add('input__invalid');
         error.innerHTML = errorMessage.invalidSymbols;
       } else if (item.value.length < MINMANELENGTH) {
@@ -88,22 +90,17 @@ const bookingModalValidation = (item) => {
       } else {
         item.classList.remove('input__invalid');
         error.innerHTML = '';
-        // isCorrect = true;
       }
       break;
     }
 
     case ('email'): {
-      if (item.value === '') {
-        item.classList.remove('input__invalid');
-        error.innerHTML = '';
-      } else if (!EMAIL_REGEXP.test(item.value)) {
+      if (!EMAIL_REGEXP.test(item.value)) {
         item.classList.add('input__invalid');
         error.innerHTML = errorMessage.invalidEmail;
       } else {
         item.classList.remove('input__invalid');
         error.innerHTML = '';
-        // isCorrect = true;
       }
       break;
     }
@@ -114,38 +111,15 @@ const bookingModalValidation = (item) => {
       };
       const mask = IMask(item, maskOptions);
       mask.updateValue();
-      if (!item.value === '') {
-        // isCorrect = true;
-      }
       break;
     }
-  }
-};
 
-inputs.forEach((item) => {
-  item.addEventListener('input', () => {
-    bookingModalValidation(item);
-  });
-});
-
-// Валидация банковской карты
-
-const cardNumberInput = document.querySelector('.card__input');
-const nameInput = document.querySelector('.name__input');
-const CVCInput = document.querySelector('.cvc__input');
-
-const bankCardInputs = [cardNumberInput, nameInput, CVCInput];
-
-const bankCardValidation = (item) => {
-  const error = item.nextElementSibling;
-  const inputName = item.getAttribute('data-input');
-  let formattedValue = '';
-  // let isCorrect = false;
-
-  switch (inputName) {
-    case ('cardNumber'):
+    case ('cardNumber'): {
       item.value = item.value.replace(/[^\d\s]/g, '');
-      if (item.value.length > 19) {
+      if (item.value.length < MAXCARDNUMBERLENGTH) {
+        error.innerHTML = errorMessage.cardNumberTooShort;
+      }
+      if (item.value.length > MAXCARDNUMBERLENGTH) {
         item.value = item.value.slice(0, 19);
       }
       for (let i = 0; i < item.value.length; i += 1) {
@@ -155,34 +129,68 @@ const bankCardValidation = (item) => {
       }
       item.value = formattedValue;
       break;
-    case ('cardholder'):
+    }
+
+    case ('cardholder'): {
       if (NAME_REGEXP.test(item.value)) {
-        nameInput.classList.add('input__invalid');
+        item.classList.add('input__invalid');
         error.innerHTML = errorMessage.invalidCardholderName;
-      } else {
-        error.innerHTML = '';
-        nameInput.classList.remove('input__invalid');
-        // isCorrect = true;
-      }
+      } else emptyCheck(item);
       break;
-    case ('CVC'):
+    }
+
+    case ('CVC'): {
       if (item.value.length > 4) {
         item.value = item.value.slice(0, 4);
       }
-      // else isCorrect = true;
       break;
+    }
   }
 };
 
-bankCardInputs.forEach((item) => {
+function emptyCheck(item) {
+  const error = item.nextElementSibling;
+
+  if (error && error.classList.contains('error')) {
+    if (item.value === '' && error) {
+      item.classList.add('input__invalid');
+      error.innerHTML = errorMessage.fillField;
+    } else if (item.value !== '' && error) {
+      item.classList.remove('input__invalid');
+      error.innerHTML = '';
+    }
+  } else if (item.value === '' && !error) {
+    item.classList.add('input__invalid');
+  } else item.classList.remove('input__invalid');
+}
+
+allInputs.forEach((item) => {
   item.addEventListener('input', () => {
-    bankCardValidation(item);
+    emptyCheck(item);
+    bookingModalValidation(item);
   });
 });
 
-// Валидация банковской карты
-
 // Валидация форм
+
+// Отправка формы покупки
+
+const formSubmit = () => {
+  allInputs.forEach((item) => {
+    emptyCheck(item);
+    bookingModalValidation(item);
+    timeChoice();
+    selectCheck();
+  });
+  if (allInputs.every((item) => !item.classList.contains('input__invalid'))
+    && !selectContainer.classList.contains('input__invalid')) {
+    modalToggle();
+  }
+};
+
+bookBtn.addEventListener('click', formSubmit);
+
+// Отправка формы покупки
 
 // Добавление выбранной информации в билет
 
@@ -232,7 +240,7 @@ const startTime = '09:00';
 const endTime = '18:00';
 const step = '30';
 
-const timeChoice = () => {
+function timeChoice() {
   const error = timeInput.nextElementSibling;
   const selectedTime = timeInput.value;
   const hours = selectedTime.slice(0, 2);
@@ -247,7 +255,7 @@ const timeChoice = () => {
     const span = `<span>${hours} : ${minutes}</span>`;
     addInfoToTicket(chosenTimeShow, span);
   }
-};
+}
 
 timeInput.addEventListener('input', timeChoice);
 
@@ -256,13 +264,25 @@ timeInput.addEventListener('input', timeChoice);
 // Кастомный Select
 
 const arrowIconSelect = document.querySelector('.arrow__icon__select');
-const selectContainer = document.querySelector('.select__container');
-const select = document.querySelector('.select');
-let selectOptions = [...document.querySelectorAll('.select__item')];
+
+function selectCheck() {
+  selectOptions = [...document.querySelectorAll('.select__item')];
+  const error = select.nextElementSibling;
+
+  if (selectOptions[0].textContent === 'Ticket Type') {
+    selectContainer.classList.add('input__invalid');
+    error.innerHTML = errorMessage.fillField;
+  } else {
+    selectContainer.classList.remove('input__invalid');
+    error.innerHTML = '';
+  }
+}
 
 selectContainer.addEventListener('click', () => {
   arrowIconSelect.classList.toggle('rotate');
-  selectContainer.classList.toggle('select__show');
+  selectOptions.forEach((item) => {
+    item.classList.toggle('select__show');
+  });
 });
 
 const selectValueChange = (value) => {
@@ -276,6 +296,7 @@ selectOptions.forEach((item) => {
   item.addEventListener('click', () => {
     if (item.textContent !== 'Ticket Type') {
       selectValueChange(item.textContent);
+      selectCheck();
     }
     showTicketType();
   });
@@ -428,8 +449,10 @@ const dataDisplay = (basicAmount, seniorAmount, ticketType = '') => {
   selectValueChange(ticketType || 'Ticket Type');
   const active = Array.from(radios).find((radio) => radio.parentNode.querySelector('.type__name').textContent === ticketType);
   if (active) active.checked = true;
-  span = `<span>${ticketType}</span>`;
-  addInfoToTicket(chosenTicketType, span);
+  if (ticketType !== 'Ticket Type') {
+    span = `<span>${ticketType}</span>`;
+    addInfoToTicket(chosenTicketType, span);
+  }
   basicTicketsAmountModal.innerHTML = basicAmount || 0;
   seniorTicketsAmountModal.innerHTML = seniorAmount || 0;
   basicCost.innerHTML = `${basicTicketsPrice} €`;
@@ -500,3 +523,28 @@ const dataFromLocalStorageDisplay = () => {
 dataFromLocalStorageDisplay();
 
 // Отображение данных из Local Storage при перезагрузке
+
+// Выбор месяца и года в банковской карте
+
+const monthChangeBtns = [document.querySelector('.month__more'), document.querySelector('.month__less')];
+const yearChangeBtns = [document.querySelector('.year__more'), document.querySelector('.year__less')];
+
+const setMonth = (e) => {
+  const monthValue = document.querySelector('.month');
+  e.preventDefault();
+  if (monthValue.value < 10) monthValue.value = `0${monthValue.value}`;
+};
+
+monthChangeBtns.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    setMonth(e);
+  });
+});
+
+yearChangeBtns.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+  });
+});
+
+// Выбор месяца и года в банковской карте
