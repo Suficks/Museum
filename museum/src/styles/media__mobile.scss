@@ -268,10 +268,6 @@
       @include rubber (height, 225, 386, 420, 768);
     }
 
-    .video__item {
-      @include rubber (height, 172, 329, 420, 768);
-    }
-
     .video__controls {
       justify-content: space-around;
       @include rubber (height, 60, 64, 420, 768);
