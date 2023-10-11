@@ -1,7 +1,6 @@
 # Project Link [Louvre]()
 
-## This is a copy of the official website of the Louvre Museum. It was a very voluminous and complex work, during which I learned a lot of new things.
-It was difficult, but at the same time incredibly interesting!
+## This is a copy of the official website of the Louvre Museum. It was a very voluminous and complex work, during which I learned a lot of new things. It was difficult, but at the same time incredibly interesting!
 
 ### Used technologies: 
 
