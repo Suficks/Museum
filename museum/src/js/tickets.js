@@ -140,6 +140,7 @@ const bookingModalValidation = (item) => {
     }
 
     case ('CVC'): {
+      item.value = item.value.replace(/\D/g, '');
       if (item.value.length > 4) {
         item.value = item.value.slice(0, 4);
       }

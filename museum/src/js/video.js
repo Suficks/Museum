@@ -10,7 +10,6 @@ const sliderBtns = document.querySelectorAll('.slider__buttons');
 const videoControls = document.querySelector('.video__controls');
 const speedFactor = document.querySelector('.speed');
 const speedIcon = document.querySelector('.speed__icon');
-// const iframe = document.querySelector('.iframe');
 
 const backgroundNull = 'linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) 0%, rgb(196, 196, 196) 0%, rgb(196, 196, 196) 100%)';
 
