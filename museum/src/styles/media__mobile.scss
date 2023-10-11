@@ -264,6 +264,18 @@
       @include rubber (margin-bottom, 40, 20, 420, 768);
     }
 
+    .speed {
+      @include rubber (padding, 5, 17, 420, 768);
+      @include rubber (font-size, 15, 28, 420, 768);
+      @include rubber (font-size, 15, 28, 420, 768);
+      @include rubber (top, 20, 30, 420, 768);
+    }
+
+    .speed__icon {
+      @include rubber (width, 50, 110, 420, 768);
+      @include rubber (height, 50, 110, 420, 768);
+    }
+
     .video__slider .slick-track {
       @include rubber (height, 225, 386, 420, 768);
     }
