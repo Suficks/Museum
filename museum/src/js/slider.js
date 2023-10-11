@@ -47,21 +47,21 @@ $('.video__slider').slick({
   asNavFor: '.iframe__slider',
 });
 
-// const number = document.querySelector('.first');
-// const sliderBtns = [...document.querySelectorAll('[role="presentation"]')];
-// const prevBtn = document.querySelector('.prev');
-// const nextBtn = document.querySelector('.next');
-// const slider = document.querySelector('.slider');
+const number = document.querySelector('.first');
+const sliderBtns = [...document.querySelectorAll('[role="presentation"]')];
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const slider = document.querySelector('.slider');
 
-// const sliderCountChange = () => {
-//   const activeBtn = document.querySelector('li.slick-active');
-//   const index = sliderBtns.indexOf(activeBtn);
-//   number.innerHTML = `0${index + 1}`;
-// };
+const sliderCountChange = () => {
+  const activeBtn = document.querySelector('li.slick-active');
+  const index = sliderBtns.indexOf(activeBtn);
+  number.innerHTML = `0${index + 1}`;
+};
 
-// sliderBtns.forEach((item) => {
-//   item.addEventListener('click', sliderCountChange);
-// });
-// prevBtn.addEventListener('click', sliderCountChange);
-// nextBtn.addEventListener('click', sliderCountChange);
-// slider.addEventListener('mousemove', sliderCountChange);
+sliderBtns.forEach((item) => {
+  item.addEventListener('click', sliderCountChange);
+});
+prevBtn.addEventListener('click', sliderCountChange);
+nextBtn.addEventListener('click', sliderCountChange);
+slider.addEventListener('mousemove', sliderCountChange);
