@@ -8,9 +8,15 @@ const fullscreenBtn = document.querySelector('.fullscreen');
 const videoContainer = document.querySelector('.video__items__wrapper');
 const sliderBtns = document.querySelectorAll('.slider__buttons');
 const videoControls = document.querySelector('.video__controls');
+const speedFactor = document.querySelector('.speed');
+const speedIcon = document.querySelector('.speed__icon');
 // const iframe = document.querySelector('.iframe');
 
 const backgroundNull = 'linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) 0%, rgb(196, 196, 196) 0%, rgb(196, 196, 196) 100%)';
+
+const timer = () => {
+  setTimeout(() => { videoControls.style.opacity = '0'; }, 3000);
+};
 
 const videoPlay = (video) => {
   video.play();
@@ -20,9 +26,7 @@ const videoPlay = (video) => {
   videoContainer.addEventListener('mouseenter', () => {
     videoControls.style.opacity = '1';
   });
-  videoContainer.addEventListener('mouseleave', () => {
-    videoControls.style.opacity = '0';
-  });
+  videoContainer.addEventListener('mouseleave', timer);
 };
 
 const videoPause = (video) => {
@@ -31,12 +35,7 @@ const videoPause = (video) => {
   play.style.backgroundImage = 'url(assets/play.svg)';
   videoControls.style.opacity = '1';
 
-  videoContainer.addEventListener('mouseenter', () => {
-    videoControls.style.opacity = '1';
-  });
-  videoContainer.addEventListener('mouseleave', () => {
-    videoControls.style.opacity = '1';
-  });
+  videoContainer.removeEventListener('mouseleave', timer);
 };
 
 const toggleVideoStatus = (video) => {
@@ -114,19 +113,37 @@ const toggleFullscreen = (video) => {
   }
 };
 
-const videosStop = () => {
-  videos.forEach((video) => {
-    videoPause(video);
-  });
+const videosStop = (video) => {
+  videoPause(video);
+  video.currentTime = 0;
   progressLine.value = 0;
   progressLine.style.background = backgroundNull;
 };
 
 const keyboardVideoControl = (video, e) => {
-  e.preventDefault();
   if (e.keyCode === 32) toggleVideoStatus(video);
   if (e.keyCode === 77) toggleVolume(video);
   if (e.keyCode === 70) toggleFullscreen(video);
+  if (e.shiftKey && e.code === 'Comma') {
+    video.playbackRate -= 0.25;
+    speedFactor.classList.add('speed__show');
+    speedIcon.classList.add('speed__icon__back__show');
+    speedFactor.innerHTML = `${video.playbackRate}x`;
+    setTimeout(() => {
+      speedFactor.classList.remove('speed__show');
+      speedIcon.classList.remove('speed__icon__back__show');
+    }, 500);
+  }
+  if (e.shiftKey && e.code === 'Period') {
+    video.playbackRate += 0.25;
+    speedFactor.classList.add('speed__show');
+    speedIcon.classList.add('speed__icon__show');
+    speedFactor.innerHTML = `${video.playbackRate}x`;
+    setTimeout(() => {
+      speedIcon.classList.remove('speed__icon__show');
+      speedFactor.classList.remove('speed__show');
+    }, 500);
+  }
 };
 
 videos.forEach((video) => {
@@ -161,13 +178,14 @@ videos.forEach((video) => {
   document.addEventListener('keydown', (e) => {
     keyboardVideoControl(video, e);
   });
+  sliderBtns.forEach((item) => {
+    item.addEventListener('click', () => {
+      videosStop(video);
+    });
+  });
 });
 
 progressLine.addEventListener('mousedown', () => {
   progressLine.addEventListener('mousemove', mouseMoveHandler);
 });
 document.addEventListener('mouseup', mouseUpHandler);
-
-sliderBtns.forEach((item) => {
-  item.addEventListener('click', videosStop);
-});
