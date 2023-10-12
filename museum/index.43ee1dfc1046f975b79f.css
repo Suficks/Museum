@@ -1527,8 +1527,10 @@ input::-webkit-calendar-picker-indicator {
 
 .booking__modal {
   position: fixed;
-  top: 5%;
+  top: 50%;
   left: 50%;
+  max-height: 100%;
+  overflow-y: scroll;
   padding: 91px 10px;
   box-sizing: border-box;
   transform: translateX(-400%);
@@ -2104,7 +2106,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .modal__active {
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 1500px) {
@@ -2563,10 +2565,7 @@ input::-webkit-calendar-picker-indicator {
     margin-left: calc((298px) + 332 * (100vw - (768px)) / 256);
   }
   .booking__modal {
-    top: 0;
     max-width: 590px;
-    height: 100%;
-    overflow-y: scroll;
     padding: 82px 18px 40px 31px;
     margin-bottom: 50px;
   }
