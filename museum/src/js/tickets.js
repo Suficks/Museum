@@ -53,6 +53,10 @@ const bookingModal = document.querySelector('.booking__modal');
 const allInputs = Array.from(bookingModal.querySelectorAll('input'));
 const selectContainer = document.querySelector('.select__container');
 const select = document.querySelector('.select');
+const basicTicketsInputModal = document.querySelector('.basic__count');
+const seniorTicketsInputModal = document.querySelector('.senior__count');
+const bookError = bookBtn.nextElementSibling;
+
 let selectOptions = [...document.querySelectorAll('.select__item')];
 
 const MINMANELENGTH = 3;
@@ -69,6 +73,7 @@ const errorMessage = {
   invalidEmail: 'Пожалуйста, введите корректный email-адрес',
   invalidCardholderName: 'Введите имя, используя только буквы и пробел',
   fillField: 'Пожалуйста, заполните поле',
+  numberOfTickets: 'Пожалуйста, выберите количество билетов',
 };
 
 const bookingModalValidation = (item) => {
@@ -149,20 +154,27 @@ const bookingModalValidation = (item) => {
   }
 };
 
-function emptyCheck(item) {
+function emptyCheck(item, secondItem = '') {
   const error = item.nextElementSibling;
 
   if (error && error.classList.contains('error')) {
-    if (item.value === '' && error) {
+    if (item.value === '') {
       item.classList.add('input__invalid');
       error.innerHTML = errorMessage.fillField;
-    } else if (item.value !== '' && error) {
+    } else {
       item.classList.remove('input__invalid');
       error.innerHTML = '';
     }
-  } else if (item.value === '' && !error) {
-    item.classList.add('input__invalid');
-  } else item.classList.remove('input__invalid');
+  }
+
+  if (item.value === '0' && secondItem.value === '0') {
+    bookError.innerHTML = errorMessage.numberOfTickets;
+  } else bookError.innerHTML = '';
+
+  if (!error) {
+    if (item.value === '') item.classList.add('input__invalid');
+    else item.classList.remove('input__invalid');
+  }
 }
 
 allInputs.forEach((item) => {
@@ -179,12 +191,14 @@ allInputs.forEach((item) => {
 const formSubmit = () => {
   allInputs.forEach((item) => {
     emptyCheck(item);
+    emptyCheck(basicTicketsInputModal, seniorTicketsInputModal);
     bookingModalValidation(item);
     timeChoice();
     selectCheck();
   });
   if (allInputs.every((item) => !item.classList.contains('input__invalid'))
-    && !selectContainer.classList.contains('input__invalid')) {
+    && !selectContainer.classList.contains('input__invalid')
+    && bookError.innerHTML === '') {
     modalToggle();
   }
 };
@@ -338,9 +352,6 @@ radios.forEach((item) => {
 const basicTicketsInput = document.querySelector('.counter__item');
 const seniorTicketsInput = document.querySelector('.second');
 
-const basicTicketsInputModal = document.querySelector('.basic__count');
-const seniorTicketsInputModal = document.querySelector('.senior__count');
-
 const totalPriceContainer = document.querySelector('.final__cost');
 const totalPriceContainerModal = document.querySelector('.total__cost');
 
@@ -482,10 +493,19 @@ function ticketsTotalPriceShowInModal() {
 selectContainer.addEventListener('click', ticketsTotalPriceShowInModal);
 basicEntryTicketType.addEventListener('input', ticketsTotalPriceShowInModal);
 seniorEntryTicketType.addEventListener('input', ticketsTotalPriceShowInModal);
+basicTicketsInputModal.addEventListener('input', () => {
+  ticketsTotalPriceShowInModal();
+  emptyCheck(basicTicketsInputModal, seniorTicketsInputModal);
+});
+seniorTicketsInputModal.addEventListener('input', () => {
+  ticketsTotalPriceShowInModal();
+  emptyCheck(seniorTicketsInputModal, basicTicketsInputModal);
+});
 buttonsInModal.forEach((item) => {
   item.addEventListener('click', (e) => {
     e.preventDefault();
     ticketsTotalPriceShowInModal();
+    emptyCheck(basicTicketsInputModal, seniorTicketsInputModal);
   });
 });
 

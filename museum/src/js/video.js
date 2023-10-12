@@ -178,8 +178,8 @@ videos.forEach((video) => {
     toggleFullscreen(video);
   });
   document.addEventListener('keydown', (e) => {
-    e.preventDefault();
     if (isPlay) {
+      e.preventDefault();
       keyboardVideoControl(video, e);
     }
   });

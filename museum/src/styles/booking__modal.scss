@@ -565,6 +565,12 @@
     transition: 0.3s ease;
   }
 
+  .book__btn~.error {
+    font-size: 17px;
+    bottom: 7px;
+    right: 5px;
+  }
+
   .ripple {
     position: absolute;
     border-radius: 50%;
