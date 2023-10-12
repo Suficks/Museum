@@ -13,12 +13,15 @@ const speedIcon = document.querySelector('.speed__icon');
 
 const backgroundNull = 'linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) 0%, rgb(196, 196, 196) 0%, rgb(196, 196, 196) 100%)';
 
+let isPlay = false;
+
 const timer = () => {
   setTimeout(() => { videoControls.style.opacity = '0'; }, 3000);
 };
 
 const videoPlay = (video) => {
   video.play();
+  isPlay = true;
   bigPlay.style.opacity = '0';
   play.style.backgroundImage = 'url(assets/pause.svg)';
 
@@ -175,7 +178,10 @@ videos.forEach((video) => {
     toggleFullscreen(video);
   });
   document.addEventListener('keydown', (e) => {
-    keyboardVideoControl(video, e);
+    e.preventDefault();
+    if (isPlay) {
+      keyboardVideoControl(video, e);
+    }
   });
   sliderBtns.forEach((item) => {
     item.addEventListener('click', () => {
