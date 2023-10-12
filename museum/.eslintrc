@@ -12,6 +12,10 @@
   },
   "rules": {
     "no-console": "off",
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "linebreak-style": [
+      "error",
+      "windows"
+    ]
   }
 }

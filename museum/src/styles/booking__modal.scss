@@ -1,7 +1,9 @@
 .booking__modal {
   position: fixed;
-  top: 5%;
+  top: 50%;
   left: 50%;
+  max-height: 100%;
+  overflow-y: scroll;
   padding: 91px 10px;
   box-sizing: border-box;
   transform: translateX(-400%);
@@ -625,5 +627,5 @@
 }
 
 .modal__active {
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
